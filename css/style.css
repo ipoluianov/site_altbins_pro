@@ -203,6 +203,12 @@ main {
   justify-content: center;
 }
 
+.download-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 /* ── Screenshots ──────────────────────────────────────────── */
 .screenshots-grid {
   display: flex;
@@ -220,6 +226,14 @@ main {
   justify-content: center;
   color: var(--text-muted);
   font-size: 0.75rem;
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 /* ── Buttons ──────────────────────────────────────────────── */
@@ -272,6 +286,23 @@ main {
   color: #0a1a12 !important;
   text-decoration: none;
   box-shadow: 0 2px 14px rgba(91, 255, 176, 0.5);
+}
+
+.btn--download-alt {
+  background: rgba(62, 207, 142, 0.22);
+  color: var(--text) !important;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  box-shadow: none;
+}
+
+.btn--download-alt:hover,
+.btn--download-alt:focus {
+  background: rgba(62, 207, 142, 0.35);
+  color: var(--text) !important;
+  text-decoration: none;
+  box-shadow: none;
 }
 
 .btn--source {
