@@ -191,11 +191,41 @@ main {
 
 .panel + .panel { margin-top: 0; }
 
+/* ── Features list ────────────────────────────────────────── */
+.features-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.6rem;
+}
+
+.features-list--specific {
+  margin-top: 0.6rem;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.features-list__check {
+  flex-shrink: 0;
+  color: var(--success);
+}
+
 /* ── Download buttons ─────────────────────────────────────── */
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 10.5rem));
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 10.5rem));
   gap: 0.5rem;
+  justify-content: center;
 }
 
 .download-grid .btn--download {
@@ -207,6 +237,14 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+.source-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 /* ── Screenshots ──────────────────────────────────────────── */
