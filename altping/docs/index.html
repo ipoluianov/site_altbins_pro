@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltPing Docs — AltBins.pro</title>
+  <meta name="description" content="How to use AltPing: table columns, colors, the history chart, host lists and keyboard shortcuts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/" class="site-logo">Alt<span>Bins</span>.pro</a>
+      <span class="site-tagline">portable utilities</span>
+    </div>
+  </header>
+
+  <main class="docs">
+    <p class="docs-back"><a href="/altping/">&larr; AltPing</a></p>
+    <h1 class="page-title">AltPing Docs</h1>
+    <p class="page-desc">How to use the app</p>
+
+    <p class="section-title">Quick start</p>
+    <div class="panel">
+      <ol>
+        <li>Press <kbd>A</kbd> to add a host. Type a name or an IP address.</li>
+        <li>The app pings every host once per second.</li>
+        <li>Press <kbd>D</kbd> to see the history chart of the selected host.</li>
+      </ol>
+      <p>To add many hosts at once, put them in the Host field and separate them with commas or spaces: <code>8.8.8.8, 1.1.1.1 example.com</code></p>
+    </div>
+
+    <p class="section-title">Table columns</p>
+    <div class="panel">
+      <table class="docs-table">
+        <tr><td>Name</td><td>Your name for the host. If it is empty, the address is shown.</td></tr>
+        <tr><td>IP</td><td>The address that replied.</td></tr>
+        <tr><td>Time ms</td><td>Time of the last ping.</td></tr>
+        <tr><td>Loss %</td><td>Pings without a reply in the last 5 minutes.</td></tr>
+        <tr><td>Avg ms</td><td>Average ping time in the last 5 minutes.</td></tr>
+        <tr><td>Max ms</td><td>Longest ping time in the last 5 minutes.</td></tr>
+        <tr><td>Details</td><td>OK, TIMEOUT (no reply), or an error, for example when the name cannot be found.</td></tr>
+      </table>
+      <p>Click a column title to sort the table. Click again to sort in the other direction.</p>
+    </div>
+
+    <p class="section-title">Colors</p>
+    <div class="panel">
+      <ul class="docs-colors">
+        <li><span class="docs-dot docs-dot--ok"></span>Green: the host replies.</li>
+        <li><span class="docs-dot docs-dot--bad"></span>Orange: the last ping failed.</li>
+        <li><span class="docs-dot docs-dot--none"></span>Gray: no pings yet.</li>
+      </ul>
+    </div>
+
+    <p class="section-title">History chart</p>
+    <div class="panel">
+      <ul>
+        <li>Select one or more hosts (up to 4) to see them on the chart.</li>
+        <li>Buttons <b>5m</b>, <b>1h</b> and <b>24h</b> change the time range.</li>
+        <li>Red striped areas mean there was no reply.</li>
+        <li>A break in the line means pinging was stopped.</li>
+        <li>Mouse wheel: zoom. Drag: move. Double-click: zoom out.</li>
+        <li>Drag the line between the table and the chart to change their size.</li>
+      </ul>
+      <p>The app keeps 24 hours of history. It is saved on disk, so it is still there after a restart.</p>
+    </div>
+
+    <p class="section-title">Host lists</p>
+    <div class="panel">
+      <p>You can have many host lists, for example "Home" and "Office". Press <kbd>O</kbd> to open the list window:</p>
+      <ul>
+        <li><b>New</b> makes an empty list.</li>
+        <li><b>Save As</b> makes a copy of the open list.</li>
+        <li><b>Remove</b> deletes a list. You cannot delete the open list.</li>
+        <li>Double-click a list or press <b>OK</b> to open it.</li>
+      </ul>
+    </div>
+
+    <p class="section-title">Keyboard shortcuts</p>
+    <div class="panel">
+      <table class="docs-table docs-table--keys">
+        <tr><td><kbd>A</kbd></td><td>Add hosts</td></tr>
+        <tr><td><kbd>E</kbd> or <kbd>Enter</kbd></td><td>Edit the selected host (or double-click it)</td></tr>
+        <tr><td><kbd>Del</kbd></td><td>Remove the selected hosts</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Select all hosts</td></tr>
+        <tr><td><kbd>D</kbd></td><td>Show or hide the chart</td></tr>
+        <tr><td><kbd>O</kbd></td><td>Host lists</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>M</kbd></td><td>Maximize or restore the window</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>Minimize the window</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>X</kbd></td><td>Exit</td></tr>
+      </table>
+      <p>Right-click a host for the Edit and Remove menu.</p>
+    </div>
+
+    <p class="section-title">Good to know</p>
+    <div class="panel">
+      <ul>
+        <li>The status bar shows the ping mode. Without admin rights on Linux and macOS the app uses UDP mode. It works the same way.</li>
+        <li>Only IPv4 is supported.</li>
+        <li>Settings, lists and history are in the <code>.altbins/.altping</code> folder in your home folder.</li>
+        <li>The app remembers the window size and the chart panel.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">&copy; Ivan Poluianov</footer>
+</body>
+</html>

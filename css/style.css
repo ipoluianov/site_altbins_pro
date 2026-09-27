@@ -385,8 +385,103 @@ main {
 
 .btn--danger:hover:not(:disabled) { background: rgba(240, 90, 90, 0.25); }
 
+/* ── Docs ─────────────────────────────────────────────────── */
+.docs-link { margin-top: 0.75rem; }
+
+.docs-back {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.docs .panel {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.docs .panel p + p,
+.docs .panel ul + p,
+.docs .panel ol + p,
+.docs .panel table + p,
+.docs .panel p + ul {
+  margin-top: 0.75rem;
+}
+
+.docs .panel ul,
+.docs .panel ol {
+  padding-left: 1.25rem;
+}
+
+.docs .panel li + li { margin-top: 0.25rem; }
+
+.docs code {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+  font-size: 0.85rem;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+}
+
+.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.docs-table td {
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.docs-table tr:last-child td { border-bottom: none; }
+
+.docs-table td:first-child {
+  white-space: nowrap;
+  color: var(--accent);
+  width: 1%;
+}
+
+.docs-table--keys td:first-child { color: var(--text); }
+
+.docs .panel ul.docs-colors {
+  list-style: none;
+  padding-left: 0;
+}
+
+.docs-colors li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.docs-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.docs-dot--ok   { background: #1ebd1e; }
+.docs-dot--bad  { background: #e6660a; }
+.docs-dot--none { background: #888888; }
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 600px) {
   .download-grid { grid-template-columns: 1fr; }
   .download-grid .btn--download { width: 100%; justify-content: center; }
+  .docs-table td:first-child { white-space: normal; }
 }
