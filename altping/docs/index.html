@@ -28,10 +28,19 @@
     <div class="panel">
       <ol>
         <li>Press <kbd>A</kbd> to add a host. Type a name or an IP address.</li>
-        <li>The app pings every host once per second.</li>
+        <li>The app pings every host once per second. You can change it for each host.</li>
         <li>Press <kbd>D</kbd> to see the history chart of the selected host.</li>
       </ol>
       <p>To add many hosts at once, put them in the Host field and separate them with commas or spaces: <code>8.8.8.8, 1.1.1.1 example.com</code></p>
+      <p>For each host you can also set:</p>
+      <ul>
+        <li><b>TCP port</b>: some servers do not answer ping. Check "Check instead of ping" and enter a port, for example 443. The app then connects to this port and shows how long it takes.</li>
+        <li><b>Ping every</b>: how often to ping. 1000 ms by default.</li>
+        <li><b>Timeout</b>: how long to wait for a reply. 1000 ms by default.</li>
+        <li><b>Slow above</b>: show the host in yellow when its average time is above this number. 0 is off.</li>
+        <li><b>Notify</b>: beep when the host goes down or comes back. Down means 3 failed pings in a row. The window title shows how many of these hosts are down, for example "(2 down)".</li>
+      </ul>
+
     </div>
 
     <p class="section-title">Table columns</p>
@@ -43,7 +52,13 @@
         <tr><td>Loss %</td><td>Pings without a reply in the last 5 minutes.</td></tr>
         <tr><td>Avg ms</td><td>Average ping time in the last 5 minutes.</td></tr>
         <tr><td>Max ms</td><td>Longest ping time in the last 5 minutes.</td></tr>
-        <tr><td>Details</td><td>OK, TIMEOUT (no reply), or an error, for example when the name cannot be found.</td></tr>
+        <tr><td>Details</td><td>OK, TIMEOUT (no reply), PORT CLOSED, or an error, for example when the name cannot be found.</td></tr>
+      </table>
+      <p>You can turn on more columns in Settings:</p>
+      <table class="docs-table">
+        <tr><td>Min ms</td><td>Shortest ping time in the last 5 minutes.</td></tr>
+        <tr><td>Jitter ms</td><td>How much the ping time changes from one ping to the next. Important for calls and games.</td></tr>
+        <tr><td>Since</td><td>How long the host has been up (or down).</td></tr>
       </table>
       <p>Click a column title to sort the table. Click again to sort in the other direction.</p>
     </div>
@@ -52,6 +67,7 @@
     <div class="panel">
       <ul class="docs-colors">
         <li><span class="docs-dot docs-dot--ok"></span>Green: the host replies.</li>
+        <li><span class="docs-dot docs-dot--slow"></span>Yellow: the host is slow (if you set "Slow above" for it).</li>
         <li><span class="docs-dot docs-dot--bad"></span>Orange: the last ping failed.</li>
         <li><span class="docs-dot docs-dot--none"></span>Gray: no pings yet.</li>
       </ul>
@@ -81,6 +97,25 @@
       </ul>
     </div>
 
+    <p class="section-title">Right-click menu</p>
+    <div class="panel">
+      <ul>
+        <li><b>Edit</b> and <b>Remove</b> the host.</li>
+        <li><b>Downtime</b> shows when the host did not reply in the last 24 hours, and for how long.</li>
+        <li><b>Export history</b> saves the last 24 hours of pings to a CSV file. You can open it in Excel.</li>
+        <li><b>Change selected</b> changes all selected hosts at once: turn the beep on or off, check a TCP port or go back to ping, set Ping every, Timeout or Slow above.</li>
+      </ul>
+    </div>
+
+    <p class="section-title">Settings</p>
+    <div class="panel">
+      <p>Click <b>Settings</b> at the bottom of the window. Everything here is off by default.</p>
+      <ul>
+        <li><b>Extra columns</b>: Min, Jitter and Since.</li>
+        <li><b>Always on top</b>: keep the window above other windows.</li>
+      </ul>
+    </div>
+
     <p class="section-title">Keyboard shortcuts</p>
     <div class="panel">
       <table class="docs-table docs-table--keys">
@@ -90,18 +125,18 @@
         <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Select all hosts</td></tr>
         <tr><td><kbd>D</kbd></td><td>Show or hide the chart</td></tr>
         <tr><td><kbd>O</kbd></td><td>Host lists</td></tr>
+        <tr><td><kbd>F1</kbd></td><td>Open this help</td></tr>
         <tr><td><kbd>Ctrl</kbd>+<kbd>M</kbd></td><td>Maximize or restore the window</td></tr>
         <tr><td><kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>Minimize the window</td></tr>
         <tr><td><kbd>Alt</kbd>+<kbd>X</kbd></td><td>Exit</td></tr>
       </table>
-      <p>Right-click a host for the Edit and Remove menu.</p>
     </div>
 
     <p class="section-title">Good to know</p>
     <div class="panel">
       <ul>
         <li>The status bar shows the ping mode. Without admin rights on Linux and macOS the app uses UDP mode. It works the same way.</li>
-        <li>Only IPv4 is supported.</li>
+        <li>IPv4 and IPv6 are supported. If a name has both, IPv4 is used.</li>
         <li>Settings, lists and history are in the <code>.altbins/.altping</code> folder in your home folder.</li>
         <li>The app remembers the window size and the chart panel.</li>
       </ul>

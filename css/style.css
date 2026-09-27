@@ -476,6 +476,7 @@ kbd {
 }
 
 .docs-dot--ok   { background: #1ebd1e; }
+.docs-dot--slow { background: #d9b72b; }
 .docs-dot--bad  { background: #e6660a; }
 .docs-dot--none { background: #888888; }
 
