@@ -44,6 +44,20 @@
           <a id="dl-linux-arm64" class="btn btn--download btn--download-alt" href="https://github.com/ipoluianov/altping/releases/latest">Linux arm64</a>
         </div>
       </div>
+      <div class="install-row">
+        <div class="install-cmd-box">
+          <code id="install-cmd" class="install-cmd">wget -qO- https://github.com/ipoluianov/altping/releases/latest/download/linux-x64-install.sh | bash</code>
+          <button id="install-cmd-copy" class="copy-btn" type="button" aria-label="Copy command" title="Copy">
+            <svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.5"/>
+              <path d="M10.5 5.5V3.5a1.5 1.5 0 00-1.5-1.5H3.5A1.5 1.5 0 002 3.5V9a1.5 1.5 0 001.5 1.5H5.5"/>
+            </svg>
+            <svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 8.5l3 3 7-7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
       <div class="source-row">
         <a class="btn btn--source" href="https://github.com/ipoluianov/altping" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -103,6 +117,18 @@
           });
         })
         .catch(function () { /* keep fallback links to the releases page */ });
+    })();
+
+    (function () {
+      var btn = document.getElementById('install-cmd-copy');
+      var cmd = document.getElementById('install-cmd');
+      if (!btn || !cmd) return;
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(cmd.textContent).then(function () {
+          btn.classList.add('copy-btn--copied');
+          setTimeout(function () { btn.classList.remove('copy-btn--copied'); }, 1500);
+        });
+      });
     })();
   </script>
 </body>

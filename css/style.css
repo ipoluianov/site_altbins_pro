@@ -247,6 +247,58 @@ main {
   border-top: 1px solid var(--border);
 }
 
+.install-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.install-cmd-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.1rem 0.1rem 0.1rem 0.85rem;
+  max-width: 100%;
+}
+
+.install-cmd {
+  font-size: 0.85rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0.4rem 0;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.copy-btn:hover { background: var(--bg-card); color: var(--text); }
+
+.copy-btn__icon--check { display: none; }
+
+.copy-btn--copied {
+  color: var(--success);
+}
+
+.copy-btn--copied .copy-btn__icon--copy { display: none; }
+.copy-btn--copied .copy-btn__icon--check { display: block; }
+
 /* ── Screenshots ──────────────────────────────────────────── */
 .screenshots-grid {
   display: flex;
