@@ -306,6 +306,26 @@ main {
 .copy-btn--copied .copy-btn__icon--copy { display: none; }
 .copy-btn--copied .copy-btn__icon--check { display: block; }
 
+/* ── Capabilities (plain-language) ───────────────────────────── */
+.capability-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+
+.capability-item__title {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.capability-item p + p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
 /* ── Screenshots ──────────────────────────────────────────── */
 .screenshots-grid {
   display: flex;
