@@ -1,16 +1,22 @@
 # AltBins.pro
 
-Local command-line utilities for macOS, Windows, and Linux. Plain HTML / CSS, no build step.
+Free open-source desktop utilities for Windows, macOS and Linux. Plain HTML / CSS, no build step.
 
 ## Structure
 
 ```
-├── index.html
-├── altping/index.html
-├── altsysinfo/index.html
+├── index.html                 # home: hero + utility cards
+├── altping/
+│   ├── index.html             # product page: OS chooser, screenshot, features
+│   ├── windows/index.html     # download page per OS (+ partner block)
+│   ├── macos/index.html
+│   ├── linux/index.html
+│   └── docs/index.html
+├── altsysinfo/index.html      # "in development" placeholders
 ├── altserialport/index.html
-├── css/style.css
-└── downloads/            # release binaries
+├── css/style.css              # design tokens, dark + light (prefers-color-scheme)
+├── js/site.js                 # copy buttons, latest release info, OS detection
+└── favicon.svg
 ```
 
 ## Run locally
@@ -22,21 +28,18 @@ Local command-line utilities for macOS, Windows, and Linux. Plain HTML / CSS, no
 
 ## Editing
 
-Everything is static HTML. Header and footer are copied into each page:
+Everything is static HTML; the header, footer and partner block are copied into each page.
+After changing `css/style.css` or `js/site.js`, bump `?v=` in their links on every page so browsers drop the cached copy.
 
-```html
-<header class="site-header">
-  <div class="site-brand">
-    <a href="/" class="site-logo">Alt<span>Bins</span>.pro</a>
-    <span class="site-tagline">portable utilities</span>
-  </div>
-</header>
-```
+`js/site.js` reads the latest GitHub release of `<body data-repo="owner/name">`:
 
-The tagline is always visible below the logo, header is centered.
+- `[data-release-version]` gets the tag (hidden until loaded)
+- `[data-asset="regex"]` gets the matching asset's download URL as `href`
+- `[data-asset-name="regex"]` / `[data-asset-size="regex"]` get its file name / size
+- `<a data-os="windows|macos|linux">` is highlighted when it matches the visitor's OS
+- `<button data-copy="element-id">` copies that element's text
 
 ## Adding a utility
 
-1. Copy `altping/index.html` → `mytool/index.html`, edit `<main>`
+1. Copy `altping/` → `mytool/`, edit the pages and `data-repo`
 2. Add a card on `index.html`
-3. Put binaries in `downloads/mytool/`

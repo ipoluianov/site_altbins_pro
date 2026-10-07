@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Solid blue tile, the glyph inside in white -->
+  <rect x="8" y="8" width="240" height="240" rx="44" fill="#1a73e8"/>
+  <!-- Connection sign: up and down half-arrows, flat where they face each other;
+       on the 16px grid, so at 16x16 the shafts and the gap are 2px each -->
+  <path d="M112 48V208H80V112H48ZM144 208V48H176V144H208Z" fill="#fff"/>
+</svg>
