@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltHex Docs — AltBins.pro</title>
+  <meta name="description" content="How to use AltHex: opening files and disks, editing, structure templates, comparing, hashes, firmware and keyboard shortcuts.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-logo"><svg class="site-logo__mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M7 8.5l3.5 3.5L7 15.5M12.5 15.5H17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="site-logo__text">Alt<span>Bins</span>.pro</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#utilities">Utilities</a>
+        <a href="https://github.com/ipoluianov" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="site-nav__label">GitHub</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="docs">
+    <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/#utilities">Utilities</a>
+      <span aria-hidden="true">/</span>
+      <a href="/althex/">AltHex</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Docs</span>
+    </nav>
+    <header class="product-head">
+      <img class="product-head__icon" src="/althex/icon.svg" alt="" width="64" height="64">
+      <div>
+        <h1 class="product-head__title">AltHex Docs</h1>
+        <p class="product-head__desc">How to use the app</p>
+        <div class="tags"></div>
+      </div>
+    </header>
+
+      <nav class="alt-links docs-nav" aria-label="Docs"><a class="btn btn--primary btn--sm" href="/althex/docs/" aria-current="page">User guide</a><a class="btn btn--ghost btn--sm" href="/althex/docs/templates/">Template language</a><a class="btn btn--ghost btn--sm" href="/althex/docs/api/">MCP and local API</a></nav>
+
+      <div class="panel">
+        <p>AltHex is a hex editor for files of any size, disks, disk images and firmware. It runs on Windows, macOS and Linux and ships as one file.</p>
+      </div>
+
+      <h2 class="section-title" id="quick-start">Quick start</h2>
+      <div class="panel">
+        <ul><li><b>Open a file.</b> Use <b>File &rarr; Open</b> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), drag the file onto the window, or pass it on the command line: <code>althex FILE</code>. Files of any size open at once, because AltHex reads only the parts you look at. With no document open, the window offers <b>Open</b> and the recent files.</li><li><b>Edit the bytes.</b> Type in the hex column or in the text column. In overwrite mode (the default) typing replaces bytes. In insert mode (<kbd>Ins</kbd>) typing inserts them. The status bar shows the current mode.</li><li><b>Save.</b> Use <kbd>Ctrl</kbd>+<kbd>S</kbd>. Until you save, the file on disk stays as it was. Undo (<kbd>Ctrl</kbd>+<kbd>Z</kbd>) and redo (<kbd>Ctrl</kbd>+<kbd>Y</kbd>) have no limit.</li><li><b>Find any command.</b> The command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) lists every command, with its shortcut; the commands of a submenu carry its name, as in <b>Copy as: Go</b>.</li></ul>
+      </div>
+
+      <h2 class="section-title" id="common-tasks">Common tasks</h2>
+      <div class="panel">
+        <h3 class="docs-h3" id="change-text-in-a-50-gb-file">Change text in a 50 GB file</h3>
+        <ol><li>Open the file. It opens in a moment, whatever its size.</li><li>Press <kbd>Ctrl</kbd>+<kbd>G</kbd> and enter an offset. Hex as the view shows it (<code>8A3D</code>) works, and so does an expression such as <code>0x400 + 3*512</code>, or <code>+16</code> to move relative to the caret. Digits alone, such as <code>1000</code>, are decimal.</li><li>Press <kbd>Ctrl</kbd>+<kbd>H</kbd> to open <b>Replace</b>. Choose text or hex, the encoding and the case, then <b>Replace</b> or <b>Replace all</b>. In the search field, <kbd>Enter</kbd> finds the next match and <kbd>Shift</kbd>+<kbd>Enter</kbd> the previous one; the panel shows which match of how many it is.</li><li>Press <kbd>Ctrl</kbd>+<kbd>S</kbd>. If the size did not change, only the changed blocks are written. If you inserted or deleted bytes, AltHex writes a temporary file and swaps it in at once.</li></ol>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="see-the-structure-of-png-elf-pe-zip-and-other-formats">See the structure of PNG, ELF, PE, ZIP and other formats</h3>
+        <p>Open the file. AltHex recognizes the format and opens the <b>Structure</b> panel (<kbd>F6</kbd>) with the field names and values.</p>
+        <ul><li>Click a field to select its bytes.</li><li>Move the caret to see which field it is in.</li><li>Edit a value right in the tree: double-click it or press <kbd>F2</kbd>, then type a number (<code>0x1F</code>, <code>-3</code>, <code>1.5</code>) or a name of the enum. The edit is one undo step, and the tree shows the new value.</li><li>To apply a template by hand, use <b>View &rarr; Apply the template</b> (<kbd>F5</kbd>) and choose one.</li></ul>
+        <p>The built-in templates cover many formats:</p>
+        <div class="docs-scroll"><table class="docs-table docs-table--head">
+        <thead><tr><th>Group</th><th>Formats</th></tr></thead>
+        <tbody>
+        <tr><td>Images and media</td><td>BMP, PNG, JPEG with Exif, GIF, WAV, MP4</td></tr>
+        <tr><td>Archives and documents</td><td>ZIP, PDF</td></tr>
+        <tr><td>Executables</td><td>ELF, PE, Mach-O</td></tr>
+        <tr><td>Disks</td><td>MBR, GPT, FAT, exFAT, NTFS, ext4, ISO 9660, UDF and other disk formats</td></tr>
+        <tr><td>Firmware</td><td>UF2, DfuSe, ESP32 images and other firmware formats</td></tr>
+        </tbody></table></div>
+        <p>You can also write your own templates; see <a href="/althex/docs/templates/">the template language</a>.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="compare-two-versions-of-a-file-and-make-a-patch">Compare two versions of a file and make a patch</h3>
+        <ol><li>Open the newer file and choose how to compare:<ul><li><b>Compare &rarr; Compare with a file</b> compares it with one or more files;</li><li><b>Compare with open documents</b> compares it with other tabs (several can be chosen);</li><li><b>Compare with shifts</b> is for two documents with inserted or deleted bytes.</li></ul></li></ol>
+        <p>Unsaved edits take part as they are.</p>
+        <ol><li>The documents are shown together and scroll together. <kbd>F8</kbd> and <kbd>Shift</kbd>+<kbd>F8</kbd> go to the next and previous difference. A long comparison can be canceled with the <b>Cancel</b> link in the status bar.</li><li>To save the list of differences, use <b>Compare &rarr; Export the report</b>.</li><li>To make a patch, use <b>Compare &rarr; Make a patch</b> and choose IPS, BPS, AltHex (<code>.ahp</code>) or a text hex diff.</li><li>To apply a patch to another copy of the file, use <b>Compare &rarr; Apply a patch</b>.</li></ol>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="compute-crc32-sha-256-and-entropy-of-a-range">Compute CRC32, SHA-256 and entropy of a range</h3>
+        <ol><li>Select the bytes. If nothing is selected, the whole file is used.</li><li>Open the <b>Hashes</b> panel (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd>) and tick the algorithms.</li><li>The panel also shows the entropy and the histogram of the byte values.</li></ol>
+        <p>The algorithms are CRC-8, CRC-16 and CRC-32 in their common variants, CRC-64, Adler-32, sums and XOR, MD5, SHA-1, SHA-2 and BLAKE3. For a CRC with your own polynomial, set its parameters in the same panel.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="find-a-32-bit-number-in-all-open-files">Find a 32-bit number in all open files</h3>
+        <ol><li>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> and choose <b>Number</b>.</li><li>Pick the type (int8 to int64, float or double), the byte order and the value.</li><li>Choose <b>All open documents</b>, then <b>Find all</b>.</li></ol>
+        <p>The results list shows every match; click one to go there. You can export the list.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="open-a-disk-and-save-a-piece-of-it">Open a disk and save a piece of it</h3>
+        <ol><li>Use <b>File &rarr; Open a disk</b>. On Linux and macOS this needs administrator rights; on Windows, run AltHex as administrator.</li><li>The disk opens read-only. Its partitions, file systems and boot sectors are shown in the side panel. The minimap on the right shows the partitions:<ul><li>point at a partition to see its name;</li><li>double-click it to go to it;</li><li>right-click it to open the partition as its own document.</li></ul></li></ol>
+        <p>The file systems with a file tree are FAT, exFAT, NTFS, ext2–4, ISO 9660 and UDF.</p>
+        <ol><li>Select the range and choose <b>File &rarr; Export</b> to save it to a file. In the <b>Files</b> panel you can also extract a file from a partition.</li></ol>
+        <p>Writing to a disk needs two confirmations that name the device and the range. Sectors that cannot be read are shown as <code>??</code> and do not stop the work.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="fix-headers-in-many-files-at-once">Fix headers in many files at once</h3>
+        <p>Use the command line:</p>
+<pre class="docs-code"><code>althex replace -hex "7F 45 4C 46 01" -with-hex "7F 45 4C 46 02" *.bin
+althex hash -a crc32,sha256 *.bin
+althex patch-apply fix.ips old.bin new.bin</code></pre>
+        <p>For a CRC of your own, use <code>althex hash -crc "width=16 poly=0x1021 init=0xFFFF refin=false refout=false xorout=0" FILE</code>. Run <code>althex help</code> to see every command. A program can also use <a href="/althex/docs/api/">the local API</a>.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="look-into-stm32-avr-or-esp32-firmware">Look into STM32, AVR or ESP32 firmware</h3>
+        <p>Open the firmware: <code>.bin</code>, Intel HEX, S-record, ELF, UF2, DfuSe or an ESP image. AltHex detects the architecture and the load address, analyzes the code and shows the following:</p>
+        <ul><li><b>the listing</b> next to the hex view, synchronized with it;</li><li><b>the Firmware panel</b>:<ul><li>the device, chosen automatically or by you, and its memory map (Flash, SRAM, peripherals): double-click a region to go to it;</li><li>the vector table: click a vector to go to its handler;</li><li>the configuration areas decoded: option bytes, fuses, eFuse;</li></ul></li><li><b>the Functions panel</b>, with the references to each function and a call tree of callees or callers; <b>Export call graph</b> writes a Graphviz <code>.dot</code> file.</li></ul>
+        <p>Register accesses are named, for example <code>str r1, [r0, #24] ; RCC-&gt;APB2ENR = IOPAEN=1 | IOPCEN=1</code>.</p>
+        <p>In the listing:</p>
+        <div class="docs-scroll"><table class="docs-table docs-table--head docs-table--keys">
+        <thead><tr><th>Key</th><th>Action</th></tr></thead>
+        <tbody>
+        <tr><td><kbd>N</kbd></td><td>rename</td></tr>
+        <tr><td><kbd>;</kbd></td><td>comment</td></tr>
+        <tr><td><kbd>C</kbd></td><td>mark as code</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>go to the target</td></tr>
+        </tbody></table></div>
+        <p>Names and comments are saved per file. <b>Export .s</b> writes an assembler source; for ARM Thumb and AVR, GNU <code>as</code> rebuilds the same bytes from it.</p>
+        <p>The disassembler handles ARM (Thumb, Thumb-2, A32), ARM64, AVR, RISC-V, Xtensa and x86.</p>
+      </div>
+
+      <h2 class="section-title" id="the-window">The window</h2>
+      <div class="panel">
+        <div class="docs-scroll"><table class="docs-table docs-table--head">
+        <thead><tr><th>Area</th><th>What is there</th></tr></thead>
+        <tbody>
+        <tr><td>Tabs</td><td>one per document; a split view (<kbd>Ctrl</kbd>+<kbd>\</kbd>) shows two places of one document</td></tr>
+        <tr><td>Hex view</td><td>offsets, bytes and text; set the width, grouping, byte order, number base, encoding and color rules in the <b>View</b> menu</td></tr>
+        <tr><td>Side panel</td><td>data inspector (<kbd>F4</kbd>), structure (<kbd>F6</kbd>), console (<kbd>Ctrl</kbd>+<kbd>`</kbd>), bookmarks (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>), hashes (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd>), history, search results, firmware, disks</td></tr>
+        <tr><td>Minimap</td><td>the whole document in a strip: the part on screen, edits, search hits, bookmarks, partitions, and how varied the bytes are; turn it on or off in <b>View &rarr; Minimap</b></td></tr>
+        <tr><td>Status bar</td><td>offset, selection, value under the caret, insert/overwrite mode, encoding, byte order, read-only</td></tr>
+        </tbody></table></div>
+        <p>The <b>data inspector</b> shows the bytes at the caret as every integer type, float and double, dates (Unix, FILETIME, DOS) and GUIDs, in both byte orders. You can edit a value there.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="editing">Editing</h3>
+        <ul><li>Cut, copy and paste work as in a text editor. <b>Edit &rarr; Copy as</b> gives hex with or without spaces, an array for C, Go, Python or Rust, Base64, or an escaped string.</li><li><b>Fill</b> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>) writes a value, a pattern, random bytes or a counter.</li><li>The bit operations act on the selection:<ul><li>AND, OR, XOR, NOT;</li><li>shifts and rotations;</li><li>add and subtract;</li><li>reversing the byte order.</li></ul></li><li><b>Read-only</b> protects a document from accidental edits. A file you cannot write (no permission, or locked by another program) opens read-only by itself.</li><li>The <b>History</b> panel shows every state of the document as a tree. An undo followed by a new edit starts a branch, and nothing is lost. Double-click a state to return to it.</li></ul>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="navigation">Navigation</h3>
+        <div class="docs-scroll"><table class="docs-table docs-table--head docs-table--wrap">
+        <thead><tr><th>Action</th><th>Key</th></tr></thead>
+        <tbody>
+        <tr><td>Back and forward through the places you jumped from</td><td><kbd>Alt</kbd>+<kbd>Left</kbd> / <kbd>Alt</kbd>+<kbd>Right</kbd></td></tr>
+        <tr><td>Add or remove a bookmark</td><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td></tr>
+        <tr><td>Next and previous bookmark</td><td><kbd>F2</kbd> / <kbd>Shift</kbd>+<kbd>F2</kbd></td></tr>
+        <tr><td>Count offsets from a mark</td><td><kbd>Ctrl</kbd>+<kbd>M</kbd> sets the mark; turn on <b>View &rarr; From the mark</b></td></tr>
+        </tbody></table></div>
+        <p>Bookmarks have a name, a color and a comment, and you can export and import them. In the <b>Bookmarks</b> panel:</p>
+        <ul><li>edit the name, color or comment with <kbd>F2</kbd>; a color is written as <code>#rrggbb</code>;</li><li><b>Color</b> picks the next of the offered colors.</li></ul>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="import-and-export">Import and export</h3>
+        <p><b>File &rarr; Import</b> and <b>File &rarr; Export</b> convert Intel HEX, Motorola S-record, Base64 and code arrays.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="recovery">Recovery</h3>
+        <p>AltHex writes your edits to a journal as you work. If it closes without saving, it offers to bring the edits back the next time it starts. If the file changes on disk while it is open, AltHex offers to reload it. If you have unsaved edits, it warns that reloading loses them.</p>
+      </div>
+      <div class="panel">
+        <h3 class="docs-h3" id="boot-images">Boot images</h3>
+        <p>The <b>Boot</b> panel lists the parts of Android boot images, U-Boot images, initramfs and El Torito. <b>Extract decompressed</b> and <b>Open decompressed</b> unpack gzip, zstd, LZ4, xz, lzma and bzip2 parts; a decompressed ramdisk shows its files.</p>
+      </div>
+
+      <h2 class="section-title" id="settings">Settings</h2>
+      <div class="panel">
+        <p>Use <b>Options &rarr; Settings</b> for:</p>
+        <ul><li>the language (12 languages);</li><li>the dark or light theme;</li><li>a backup copy on save;</li><li>always on top;</li><li>the color rules of the bytes.</li></ul>
+        <p>The settings are kept in <code>~/.altbins/.althex/</code>.</p>
+        <p><b>Options &rarr; External interfaces</b> turns on the local API and MCP for other programs and AI agents; see <a href="/althex/docs/api/">the external interfaces</a>. They are off by default.</p>
+      </div>
+
+      <h2 class="section-title" id="keys">Keys</h2>
+      <div class="panel">
+        <div class="docs-scroll"><table class="docs-table docs-table--head docs-table--keys docs-table--wrap">
+        <thead><tr><th>Key</th><th>Command</th></tr></thead>
+        <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>O</kbd> / <kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>New, Open, Save, Save as</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd></td><td>Close, Close all</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Undo, Redo</td></tr>
+        <tr><td><kbd>Ins</kbd></td><td>Insert / overwrite</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>H</kbd> / <kbd>F3</kbd> / <kbd>Shift</kbd>+<kbd>F3</kbd></td><td>Find, Replace, Find next / previous</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Go to offset</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>B</kbd> / <kbd>F2</kbd> / <kbd>Shift</kbd>+<kbd>F2</kbd></td><td>Bookmark, next / previous</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>Left</kbd> / <kbd>Alt</kbd>+<kbd>Right</kbd></td><td>Back / forward</td></tr>
+        <tr><td><kbd>F4</kbd> / <kbd>F6</kbd> / <kbd>F5</kbd></td><td>Data inspector, Structure, Apply the template</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> / <kbd>Ctrl</kbd>+<kbd>`</kbd></td><td>Hashes, Bookmarks, Console</td></tr>
+        <tr><td><kbd>F8</kbd> / <kbd>Shift</kbd>+<kbd>F8</kbd></td><td>Next / previous difference</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>\</kbd></td><td>Split view</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>=</kbd> / <kbd>Ctrl</kbd>+<kbd>-</kbd> / <kbd>Ctrl</kbd>+<kbd>0</kbd></td><td>Zoom in, out, normal size</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Tab</kbd></td><td>Next tab</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>Command palette</td></tr>
+        <tr><td><kbd>F1</kbd></td><td>This guide</td></tr>
+        </tbody></table></div>
+      </div>
+
+      <h2 class="section-title" id="licenses">Licenses</h2>
+      <div class="panel">
+        <p>AltHex is distributed under the MIT License. <b>Help &rarr; About &rarr; License</b> and <code>althex licenses</code> show the licenses of the parts built into it.</p>
+      </div>
+
+      <nav class="alt-links docs-nav" aria-label="Docs"><a class="btn btn--primary btn--sm" href="/althex/docs/" aria-current="page">User guide</a><a class="btn btn--ghost btn--sm" href="/althex/docs/templates/">Template language</a><a class="btn btn--ghost btn--sm" href="/althex/docs/api/">MCP and local API</a></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; Ivan Poluianov</span>
+      <span>Free and open-source utilities</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltHex External Interfaces — AltBins.pro</title>
+  <meta name="description" content="AltHex external interfaces: MCP for AI agents and the local JSON-RPC API for programs, with the list of tools.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-logo"><svg class="site-logo__mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M7 8.5l3.5 3.5L7 15.5M12.5 15.5H17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="site-logo__text">Alt<span>Bins</span>.pro</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#utilities">Utilities</a>
+        <a href="https://github.com/ipoluianov" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="site-nav__label">GitHub</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="docs">
+    <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/#utilities">Utilities</a>
+      <span aria-hidden="true">/</span>
+      <a href="/althex/">AltHex</a>
+      <span aria-hidden="true">/</span>
+      <a href="/althex/docs/">Docs</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">MCP and local API</span>
+    </nav>
+    <header class="product-head">
+      <img class="product-head__icon" src="/althex/icon.svg" alt="" width="64" height="64">
+      <div>
+        <h1 class="product-head__title">AltHex External Interfaces</h1>
+        <p class="product-head__desc">MCP and the local API for programs and AI agents</p>
+        <div class="tags"></div>
+      </div>
+    </header>
+
+      <nav class="alt-links docs-nav" aria-label="Docs"><a class="btn btn--ghost btn--sm" href="/althex/docs/">User guide</a><a class="btn btn--ghost btn--sm" href="/althex/docs/templates/">Template language</a><a class="btn btn--primary btn--sm" href="/althex/docs/api/" aria-current="page">MCP and local API</a></nav>
+
+      <div class="panel">
+        <p>AltHex has no plugins and no scripting language of its own. Other programs and AI agents work with it from outside, over open protocols:</p>
+        <ul><li><b>MCP</b> (Model Context Protocol), for AI agents: over stdio (<code>althex mcp</code>) or over HTTP;</li><li><b>the local API</b>, JSON-RPC 2.0 for programs: over stdio (<code>althex rpc</code>), a unix socket, or a named pipe on Windows.</li></ul>
+        <p>Both have the same operations ("tools"), listed below. A tool that changes anything asks the user first.</p>
+      </div>
+
+      <h2 class="section-title" id="turning-them-on">Turning them on</h2>
+      <div class="panel">
+        <p>The interfaces are off by default. Turn them on in <b>Options &rarr; External interfaces</b>:</p>
+        <ul><li><b>Local API.</b> The window listens on a socket only the user can reach:<ul><li>Linux: <code>$XDG_RUNTIME_DIR/althex-api-&lt;hash&gt;.sock</code>;</li><li>macOS: <code>~/.altbins/.althex/run/api.sock</code>;</li><li>Windows: the pipe <code>\\.\pipe\althex-api-&lt;user&gt;</code>.</li></ul></li><li><b>MCP over HTTP.</b> The window listens on <code>http://127.0.0.1:&lt;port&gt;/mcp</code> (port 47321 by default). Clients must send <code>Authorization: Bearer &lt;token&gt;</code>; the token is in the same dialog. Requests from web pages (an <code>Origin</code> other than localhost) are refused.</li><li><b>Apply the edits of clients without asking.</b> Off by default; leave it off unless you trust every client.</li></ul>
+      </div>
+
+      <h2 class="section-title" id="connecting-an-ai-agent">Connecting an AI agent</h2>
+      <div class="panel">
+        <p>An agent starts <code>althex mcp</code> and talks to it over stdin and stdout. With the window running and the local API on, the calls go to the window: the agent sees the documents open there, and the user is asked about changes. Without the window, the command works on the files it is given:</p>
+        <div class="docs-scroll"><table class="docs-table docs-table--head docs-table--wrap">
+        <thead><tr><th>Command</th><th>What the agent can do</th></tr></thead>
+        <tbody>
+        <tr><td><code>althex mcp</code></td><td>the documents of the window (local API on)</td></tr>
+        <tr><td><code>althex mcp FILE...</code></td><td>without the window: read these files</td></tr>
+        <tr><td><code>althex mcp -allow-open FILE...</code></td><td>&hellip; and open other files</td></tr>
+        <tr><td><code>althex mcp -allow-write FILE...</code></td><td>&hellip; and edit and save them</td></tr>
+        <tr><td><code>althex mcp -headless ...</code></td><td>never use the window, even when it runs</td></tr>
+        <tr><td><code>althex mcp -http 127.0.0.1:PORT -token T FILE...</code></td><td>serve MCP over HTTP without the window</td></tr>
+        </tbody></table></div>
+        <p>For example, in Claude Code:</p>
+<pre class="docs-code"><code>claude mcp add althex -- althex mcp</code></pre>
+        <p>For a client that connects over HTTP, use the URL <code>http://127.0.0.1:47321/mcp</code> and the header <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+      </div>
+
+      <h2 class="section-title" id="the-local-api">The local API</h2>
+      <div class="panel">
+        <p>The local API is JSON-RPC 2.0, one message per line (batches allowed). Connect to the socket or pipe of the window, or start <code>althex rpc</code>, which works the same way as <code>althex mcp</code>.</p>
+        <p>The optional first call introduces the client by name; the name is shown to the user:</p>
+<pre class="docs-code"><code>{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"clientInfo": {"name": "my-script", "version": "1"}}}
+{"jsonrpc": "2.0", "id": 2, "method": "read", "params": {"offset": 0, "length": 16, "format": "hex"}}</code></pre>
+        <p>A method is a tool, and its params are the tool's arguments. The result is an object. The errors are:</p>
+        <div class="docs-scroll"><table class="docs-table docs-table--head">
+        <thead><tr><th>Code</th><th>Meaning</th></tr></thead>
+        <tbody>
+        <tr><td>-32601</td><td>no such method</td></tr>
+        <tr><td>-32602</td><td>wrong parameters</td></tr>
+        <tr><td>-32001</td><td>the user declined</td></tr>
+        <tr><td>-32002</td><td>not found: a document, a template, a field</td></tr>
+        <tr><td>-32003</td><td>not allowed: switched off, read-only, a disk</td></tr>
+        <tr><td>-32004</td><td>too large for one call</td></tr>
+        </tbody></table></div>
+        <p>Over MCP, these errors come back as tool results with <code>isError: true</code>.</p>
+      </div>
+
+      <h2 class="section-title" id="tools">Tools</h2>
+      <div class="panel">
+        <p>A document is named by the <code>id</code> that <code>list_documents</code> returns. If <code>document</code> is absent or empty, the tool works on the document the user is looking at. Offsets and sizes are decimal byte counts.</p>
+        <div class="docs-scroll"><table class="docs-table docs-table--head">
+        <thead><tr><th>Tool</th><th>Arguments</th><th>Result</th></tr></thead>
+        <tbody>
+        <tr><td><code>list_documents</code></td><td>&mdash;</td><td>id, name, path, size, modified, read_only, current, caret, selection</td></tr>
+        <tr><td><code>open_document</code></td><td><code>path</code></td><td>the document; the user is asked</td></tr>
+        <tr><td><code>read</code></td><td><code>offset</code>, <code>length</code> (256), <code>format</code>: <code>dump</code> (&le; 64 KB), <code>hex</code>, <code>base64</code>, <code>text</code> (&le; 1 MB), <code>encoding</code></td><td>the bytes; the unreadable sectors of disks</td></tr>
+        <tr><td><code>search</code></td><td><code>hex</code> (<code>??</code> and <code>4?</code> wildcards) or <code>text</code> with <code>encoding</code>, <code>ignore_case</code>; <code>from</code>, <code>to</code>, <code>align</code>, <code>max_results</code> (100, &le; 10000)</td><td>the offsets of the matches</td></tr>
+        <tr><td><code>hash</code></td><td><code>algorithms</code> (crc32, md5, sha256 by default; crc8&hellip;crc64, adler32, xor8, sum8/16/32, sha1, sha512, blake3&hellip;), <code>offset</code>, <code>length</code></td><td>the hex digests</td></tr>
+        <tr><td><code>list_templates</code></td><td><code>document</code></td><td>the templates; the one that fits the document</td></tr>
+        <tr><td><code>apply_template</code></td><td><code>template</code> (empty: the one that fits), <code>start</code></td><td>number of fields, warnings, errors, output, the top of the tree</td></tr>
+        <tr><td><code>get_structure</code></td><td><code>path</code> (<code>ehdr.e_entry</code>, <code>sections[2]</code>) or <code>offset</code>, <code>depth</code> (2, &le; 8), <code>max_children</code> (100, &le; 1000)</td><td>the fields: name, path, type, offset, size, value, comment, children</td></tr>
+        <tr><td><code>propose_edits</code></td><td><code>edits</code>: <code>{offset, overwrite: hex}</code>, <code>{offset, insert: hex}</code>, <code>{offset, delete: n}</code>; <code>description</code></td><td>the document after the edits; the user is asked</td></tr>
+        <tr><td><code>save_document</code></td><td>&mdash;</td><td>the document; the user is asked</td></tr>
+        <tr><td><code>show</code></td><td><code>offset</code>, <code>length</code></td><td>selects the bytes in the window</td></tr>
+        </tbody></table></div>
+        <p>How <code>propose_edits</code> works:</p>
+        <ul><li>The edits apply in order. The offsets of an edit refer to the document as the edits before it left it.</li><li>The user sees the list of edits and the description. If the user agrees, the edits become one step of the undo history and are highlighted until the document changes again.</li><li>The edits are not saved to the file. <code>save_document</code> asks the user separately.</li><li>If one edit fails, none of the proposal stays.</li><li>If the client disconnects or nobody answers within five minutes, the proposal is declined.</li></ul>
+        <p>Templates applied over the API do not write to the document.</p>
+      </div>
+
+      <nav class="alt-links docs-nav" aria-label="Docs"><a class="btn btn--ghost btn--sm" href="/althex/docs/">User guide</a><a class="btn btn--ghost btn--sm" href="/althex/docs/templates/">Template language</a><a class="btn btn--primary btn--sm" href="/althex/docs/api/" aria-current="page">MCP and local API</a></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; Ivan Poluianov</span>
+      <span>Free and open-source utilities</span>
+    </div>
+  </footer>
+</body>
+</html>

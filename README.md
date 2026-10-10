@@ -12,6 +12,7 @@ Free open-source desktop utilities for Windows, macOS and Linux. Plain HTML / CS
 │   ├── macos/index.html
 │   ├── linux/index.html
 │   └── docs/index.html
+├── althex/                    # same layout as altping/; docs/ has templates/ and api/
 ├── altsysinfo/index.html      # "in development" placeholders
 ├── altserialport/index.html
 ├── css/style.css              # design tokens, dark + light (prefers-color-scheme)
