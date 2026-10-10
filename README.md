@@ -17,7 +17,10 @@ Free open-source desktop utilities for Windows, macOS and Linux. Plain HTML / CS
 ├── altserialport/index.html
 ├── css/style.css              # design tokens, dark + light (prefers-color-scheme)
 ├── js/site.js                 # copy buttons, latest release info, OS detection
-└── favicon.svg
+├── favicon.svg
+├── robots.txt                 # allows search and AI crawlers, points to the sitemap
+├── sitemap.xml                # every page; update when adding one
+└── llms.txt                   # site summary for AI assistants
 ```
 
 ## Run locally
@@ -44,3 +47,4 @@ After changing `css/style.css` or `js/site.js`, bump `?v=` in their links on eve
 
 1. Copy `altping/` → `mytool/`, edit the pages and `data-repo`
 2. Add a card on `index.html`
+3. Add the new pages to `sitemap.xml` and `llms.txt`; fix `canonical`, `og:*` and the JSON-LD block in each page's `<head>`

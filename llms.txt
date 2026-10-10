@@ -1,0 +1,35 @@
+# AltBins.pro
+
+> Free, open-source (MIT) desktop utilities for Windows, macOS and Linux by Ivan Poluianov. On Windows and Linux each utility is a single portable executable with no installer and no dependencies; on macOS it is a signed and notarized .dmg for Apple Silicon. Linux builds are x64 and arm64, also as .deb and .rpm packages and a one-line install script.
+
+Downloads come from the GitHub releases of each project. Every app is available in 12 languages with a light or dark theme.
+
+## AltPing
+
+Network ping utility with a GUI. It pings a list of hosts every second and shows the ping time, plus loss, average and maximum over the last 5 minutes, with a 24-hour history chart. It can check a TCP port instead of ping, logs downtime, beeps or shows a desktop notification when a host goes down, keeps running in the tray, exports history to CSV and can publish a host's live ping to a public page on u00.io. Works without root on Linux and macOS (unprivileged ICMP / UDP mode).
+
+- [AltPing](https://altbins.pro/altping/): overview, features and screenshot
+- [AltPing docs](https://altbins.pro/altping/docs/): table columns, colors, history chart, host lists, settings, keyboard shortcuts
+- [AltPing for Windows](https://altbins.pro/altping/windows/): portable .exe (x64)
+- [AltPing for macOS](https://altbins.pro/altping/macos/): signed .dmg (Apple Silicon)
+- [AltPing for Linux](https://altbins.pro/altping/linux/): portable binary, .deb, .rpm, one-line install, notes on ping without root
+- [Source code](https://github.com/ipoluianov/altping): GitHub, MIT license
+
+## AltHex
+
+Hex editor for files of any size, disks, disk images and firmware. A 50 GB file opens at once because only the visible parts are read; edits are written on save, with unlimited undo. It recognizes PNG, ELF, PE, ZIP, PDF, MBR, GPT, FAT, NTFS, ext4 and more and shows their fields as an editable tree; custom formats are described in a C-like template language close to 010 Editor Binary Templates. It compares files (even with shifts) and makes or applies IPS, BPS and text patches; computes CRC-8 to CRC-64, Adler-32, MD5, SHA-1, SHA-2, BLAKE3, entropy and byte histograms; opens disks read-only; and disassembles firmware (Intel HEX, S-record, UF2, DfuSe, ESP images; ARM, AVR, RISC-V, Xtensa, x86). AI agents and programs can use it over MCP and a local JSON-RPC 2.0 API; there is also a command line for batch jobs.
+
+- [AltHex](https://altbins.pro/althex/): overview, features and screenshots
+- [AltHex user guide](https://altbins.pro/althex/docs/): common tasks, editing, navigation, import and export, recovery, boot images, settings, keys
+- [AltHex template language](https://altbins.pro/althex/docs/templates/): types, byte order, arrays, structs, enums, bit fields, attributes, built-in functions
+- [AltHex MCP and local API](https://altbins.pro/althex/docs/api/): connecting an AI agent (`claude mcp add althex -- althex mcp`), JSON-RPC methods, the list of tools and their arguments
+- [AltHex for Windows](https://altbins.pro/althex/windows/): portable .exe (x64)
+- [AltHex for macOS](https://altbins.pro/althex/macos/): signed .dmg (Apple Silicon)
+- [AltHex for Linux](https://altbins.pro/althex/linux/): portable binary, .deb, .rpm, one-line install
+- [Source code](https://github.com/ipoluianov/althex): GitHub, MIT license
+
+## Optional
+
+- [AltSysInfo](https://altbins.pro/altsysinfo/): system and hardware information, in development
+- [AltSerialPort](https://altbins.pro/altserialport/): serial port terminal, in development
+- [Author on GitHub](https://github.com/ipoluianov)

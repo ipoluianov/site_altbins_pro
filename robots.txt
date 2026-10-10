@@ -1,0 +1,7 @@
+# Search engines and AI systems are welcome to index this site,
+# use it in answers and train on it.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: https://altbins.pro/sitemap.xml
