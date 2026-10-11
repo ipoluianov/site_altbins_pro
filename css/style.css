@@ -716,6 +716,7 @@ main {
 .note-list .cmd { margin-top: 0.6rem; }
 
 .panel code,
+.capability-item code,
 .steps code,
 .note-list code {
   font-size: 0.82em;
@@ -900,6 +901,27 @@ main {
   overflow: hidden;
   background: var(--surface);
 }
+
+.capability-list--wide { grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+
+.about { margin-bottom: 1rem; font-size: 1.02rem; }
+
+.about-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-pair .panel + .panel { margin-top: 0; }
+.source-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.author { font-size: 1.02rem; }
+.author__tags { margin-top: 1rem; }
+.author__skills { margin-top: 0.5rem; }
+.author .source-links { margin-top: 1rem; }
+.about-pair .panel p + p { margin-top: 0.35rem; font-size: 0.86rem; }
+.capability-item p + p + p { margin-top: 0.5rem; }
+.capability-item b { color: var(--text); font-weight: 600; }
 
 .capability-item {
   padding: 1.1rem 1.25rem;

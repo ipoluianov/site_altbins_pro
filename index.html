@@ -30,6 +30,9 @@
     {
       "@type": "Person",
       "name": "Ivan Poluianov",
+      "jobTitle": "Software engineer",
+      "description": "Software engineer with more than 20 years of experience in commercial software: industrial SCADA systems, and software and firmware for laboratory analytical instruments such as mass spectrometers and gas chromatographs.",
+      "knowsAbout": ["Go", "C", "C++", "C#", ".NET", "Assembler", "STM32", "Databases", "SCADA", "Embedded firmware"],
       "url": "https://github.com/ipoluianov",
       "@id": "https://altbins.pro/#author",
       "sameAs": [
@@ -73,7 +76,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <link rel="stylesheet" href="/css/style.css?v=7">
 </head>
 <body>
 
@@ -149,6 +152,94 @@
               <span class="tags"><span class="tag">Windows</span><span class="tag">macOS</span><span class="tag">Linux</span></span>
             </div>
           </a>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <h2 class="section-title">About AltBins</h2>
+        <div class="panel about">
+          <p>I&rsquo;m Ivan Poluianov, and I have always valued software that is easy to install. Download one file, run it, and it works: no installer, no runtime to set up first, nothing pulled from the internet on the first start.</p>
+          <p>AltBins is a set of small desktop utilities built around that idea. They are native apps. There is no Electron with a whole browser inside, no .NET or Java to install, no background services. Each tool does one job and stays out of the way.</p>
+        </div>
+        <div class="capability-list capability-list--wide">
+          <div class="capability-item">
+            <p class="capability-item__title">One file</p>
+            <p>On Windows and Linux every utility is a single portable executable. Keep it in a tools folder or on a USB stick.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">No heavy runtime</p>
+            <p>No Electron, no .NET, no Java. Nothing extra to download, nothing to keep updated next to the app.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">Install only if you want</p>
+            <p>Run it from any folder. If you like, it adds itself to the Start menu or the app menu, and removes itself just as easily.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">Windows, macOS, Linux</p>
+            <p>A portable .exe, a signed and notarized .dmg for Apple Silicon, and Linux builds for x64 and arm64 with .deb and .rpm packages.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">12 languages</p>
+            <p>Every app speaks 12 languages and comes with a light and a dark theme.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">Free and open source</p>
+            <p>MIT license, code on <a href="https://github.com/ipoluianov" target="_blank" rel="noopener noreferrer">GitHub</a>. Downloads come straight from GitHub releases.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="details">
+        <h2 class="section-title">Install, settings, removal</h2>
+        <div class="capability-list capability-list--wide">
+          <div class="capability-item">
+            <p class="capability-item__title">Windows</p>
+            <p><b>Install is optional.</b> The .exe runs from any folder. The <b>Install</b> link in the status bar copies it into <code>%USERPROFILE%\.altbins</code> and adds it to the Start menu, the desktop and &ldquo;Installed apps&rdquo;.</p>
+            <p><b>Remove</b> it from &ldquo;Installed apps&rdquo; or with the <b>Uninstall</b> link. A portable copy is removed by deleting the file.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">macOS</p>
+            <p><b>Install:</b> open the .dmg and drag the app to <b>Applications</b>. It is signed and notarized, so Gatekeeper lets it open without warnings.</p>
+            <p><b>Remove:</b> drag the app from Applications to the Trash.</p>
+          </div>
+          <div class="capability-item">
+            <p class="capability-item__title">Linux</p>
+            <p><b>Install is optional.</b> The portable binary runs from anywhere. The one-line install puts the app into <code>~/.altbins</code> for the current user, without root, and adds a menu entry. The .deb and .rpm packages install system-wide.</p>
+            <p><b>Remove:</b> <b>Uninstall</b> in the menu entry (right-click) or <code>~/.altbins/.&lt;app&gt;-uninstall.sh</code>. Packages are removed with the package manager.</p>
+          </div>
+        </div>
+        <div class="about-pair">
+          <div class="panel">
+            <p class="capability-item__title">Settings in one place</p>
+            <p class="muted">Each app keeps its settings, lists and history in its own folder in your home folder: <code>~/.altbins/.altping</code>, <code>~/.altbins/.althex</code> (on Windows, <code>%USERPROFILE%\.altbins\&hellip;</code>). Delete that folder to reset the app, or to clean up after removing it.</p>
+          </div>
+          <div class="panel">
+            <p class="capability-item__title">Your data stays with you</p>
+            <p class="muted">The apps collect no statistics and send nothing anywhere unless you ask them to. AltPing contacts only the hosts you add, and publishes a host&rsquo;s ping time to u00.io only when you turn that on. The AltHex API and MCP server for AI agents are off until you switch them on, and then listen only on your own computer.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="source">
+        <h2 class="section-title">Source code and building</h2>
+        <div class="panel">
+          <p>Every utility is open source under the MIT license. To build any of them you need only the Go compiler: no cgo, no C toolchain, no system libraries to install. Clone the repository and run <code>go build</code>:</p>
+          <div class="cmd"><code class="cmd__text">git clone https://github.com/ipoluianov/altping &amp;&amp; cd altping &amp;&amp; go build .</code></div>
+          <p>Without cgo, Go builds for every system from any of them. For example, a Windows .exe on Linux or macOS:</p>
+          <div class="cmd"><code class="cmd__text">GOOS=windows GOARCH=amd64 go build -ldflags=-H=windowsgui .</code></div>
+          <p class="muted"><code>build/all.sh</code> in each repository builds every platform the way the releases are made, with the .deb and .rpm packages and the install script.</p>
+          <p class="source-links"><a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> AltPing</a><a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/althex" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> AltHex</a></p>
+        </div>
+      </section>
+
+      <section class="section" id="author">
+        <h2 class="section-title">About the author</h2>
+        <div class="panel author">
+          <p>I&rsquo;m Ivan Poluianov, a software engineer with more than 20 years of experience in commercial software. I wrote my first programs at the age of eight, on paper, because I didn&rsquo;t have a computer yet.</p>
+          <p>Most of my work has been close to hardware: industrial SCADA systems, and software and firmware for laboratory analytical instruments such as mass spectrometers and gas chromatographs.</p>
+          <div class="tags author__tags"><span class="tag">20+ years in commercial software</span><span class="tag">industrial SCADA</span><span class="tag">lab instruments: software &amp; firmware</span></div>
+          <div class="tags author__skills" aria-label="Skills"><span class="tag tag--accent">Go</span><span class="tag tag--accent">C/C++</span><span class="tag tag--accent">C# / .NET</span><span class="tag tag--accent">Assembler</span><span class="tag tag--accent">STM32</span><span class="tag tag--accent">databases</span></div>
+          <p class="source-links"><a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> github.com/ipoluianov</a></p>
         </div>
       </section>
     </div>
