@@ -727,15 +727,15 @@ main {
 
 .cmd code { background: none; border: 0; padding: 0; }
 
-/* ── Download layout with partner card ──────────────────── */
-.dl-layout {
+/* ── Layout with the PetroSky card ─────────────────────── */
+.promo-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 2rem;
   align-items: start;
 }
 
-.dl-aside {
+.promo-aside {
   position: sticky;
   top: 5.5rem;
   margin-top: 3rem;
@@ -852,12 +852,12 @@ main {
 
 /* Narrow screens: the card goes after the first section, centered */
 @media (max-width: 900px) {
-  .dl-layout { display: flex; flex-direction: column; align-items: stretch; }
-  .dl-main, .dl-aside { display: contents; }
-  .dl-main > .section { min-width: 0; }
-  .dl-main > .section:nth-child(1) { order: 1; }
-  .dl-aside > .promo { order: 2; align-self: center; width: 100%; max-width: 380px; margin-top: 2.5rem; }
-  .dl-main > .section:nth-child(n+2) { order: 3; }
+  .promo-layout { display: flex; flex-direction: column; align-items: stretch; }
+  .promo-main, .promo-aside { display: contents; }
+  .promo-main > .section { min-width: 0; }
+  .promo-main > .section:nth-child(1) { order: 1; }
+  .promo-aside > .promo { order: 2; align-self: center; width: 100%; max-width: 380px; margin-top: 2.5rem; }
+  .promo-main > .section:nth-child(n+2) { order: 3; }
 }
 
 /* ── Other platforms ──────────────────────────────────────── */
@@ -919,15 +919,31 @@ main {
 }
 
 /* ── Screenshot ───────────────────────────────────────────── */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shot figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
 .screenshot {
+  display: block;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
-  padding: 0.5rem;
+  padding: 0.4rem;
   box-shadow: var(--shadow);
+  cursor: zoom-in;
+  transition: border-color 0.15s, transform 0.15s;
 }
 
-.screenshot + .screenshot { margin-top: 1rem; }
+.screenshot:hover { border-color: var(--accent-line); transform: translateY(-2px); }
 
 .screenshot img {
   display: block;
@@ -935,6 +951,52 @@ main {
   height: auto;
   border-radius: var(--radius-sm);
 }
+
+/* Full-size screenshot viewer (js/site.js) */
+.zoom {
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 2.5rem;
+  border: 0;
+  background: transparent;
+  cursor: zoom-out;
+}
+
+.zoom[open] { display: flex; align-items: center; justify-content: center; }
+.zoom:focus { outline: none; }
+.zoom::backdrop { background: rgba(0, 0, 0, 0.85); }
+
+.zoom img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.zoom__btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.zoom__btn:hover { background: rgba(255, 255, 255, 0.24); }
+.zoom__btn[hidden] { display: none; }
+.zoom__close { top: 1rem; right: 1rem; }
+.zoom__prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+.zoom__next { right: 1rem; top: 50%; transform: translateY(-50%); }
 
 /* ── Empty state ──────────────────────────────────────────── */
 .empty {
@@ -1160,6 +1222,8 @@ kbd {
 
 @media (max-width: 600px) {
   .container { padding: 0 1rem; }
+  .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .zoom { padding: 3.5rem 0.5rem; }
   .features-list { grid-template-columns: 1fr; }
   .hero { padding: 3.5rem 0 2.5rem; }
   .site-nav__label { display: none; }

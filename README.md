@@ -32,7 +32,7 @@ Free open-source desktop utilities for Windows, macOS and Linux. Plain HTML / CS
 
 ## Editing
 
-Everything is static HTML; the header and footer are copied into each page. Download pages also carry the PetroSky card (`.promo` in `.dl-aside`), each with its own joke line.
+Everything is static HTML; the header and footer are copied into each page. Product and download pages also carry the PetroSky card (`.promo` in `.promo-aside` of a `.promo-layout`), each page with its own joke line.
 After changing `css/style.css` or `js/site.js`, bump `?v=` in their links on every page so browsers drop the cached copy.
 
 `js/site.js` reads the latest GitHub release of `<body data-repo="owner/name">`:

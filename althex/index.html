@@ -74,7 +74,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=4">
+  <link rel="stylesheet" href="/css/style.css?v=5">
 </head>
 <body data-repo="ipoluianov/althex">
 
@@ -136,36 +136,67 @@
 
     <section class="section">
       <h2 class="section-title">Screenshots</h2>
-      <div class="screenshot">
-        <img src="/althex/screenshots/althex-structure.png" width="1360" height="860" loading="lazy" alt="An ELF executable open in AltHex: the hex view on the left and the Structure panel on the right with the decoded ELF header fields">
-      </div>
-      <div class="screenshot">
-        <img src="/althex/screenshots/althex-firmware.png" width="1360" height="860" loading="lazy" alt="STM32 firmware in AltHex: the Intel HEX file, the ARM Thumb listing next to it and the Firmware panel with the architecture, the load address and the vector table">
-      </div>
-      <div class="screenshot">
-        <img src="/althex/screenshots/althex-hashes.png" width="1360" height="860" loading="lazy" alt="The Hashes panel of AltHex with CRC-16, CRC-32, Adler-32, MD5, SHA-1 and SHA-256 of a whole file and its entropy">
+      <div class="shots">
+        <figure class="shot">
+          <a class="screenshot" href="/althex/screenshots/althex-structure.png" data-zoom>
+            <img src="/althex/screenshots/althex-structure.png" width="1360" height="860" loading="lazy" alt="An ELF executable open in AltHex: the hex view on the left and the Structure panel on the right with the decoded ELF header fields">
+          </a>
+          <figcaption>ELF structure</figcaption>
+        </figure>
+        <figure class="shot">
+          <a class="screenshot" href="/althex/screenshots/althex-firmware.png" data-zoom>
+            <img src="/althex/screenshots/althex-firmware.png" width="1360" height="860" loading="lazy" alt="STM32 firmware in AltHex: the Intel HEX file, the ARM Thumb listing next to it and the Firmware panel with the architecture, the load address and the vector table">
+          </a>
+          <figcaption>STM32 firmware</figcaption>
+        </figure>
+        <figure class="shot">
+          <a class="screenshot" href="/althex/screenshots/althex-hashes.png" data-zoom>
+            <img src="/althex/screenshots/althex-hashes.png" width="1360" height="860" loading="lazy" alt="The Hashes panel of AltHex with CRC-16, CRC-32, Adler-32, MD5, SHA-1 and SHA-256 of a whole file and its entropy">
+          </a>
+          <figcaption>Hashes and entropy</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">About</h2>
-      <div class="panel">
-        <p>AltHex is a hex editor for files of any size, disks, disk images and firmware. A file of any size opens at once, because AltHex reads only the parts you look at, and edits are written only when you save. It recognizes PNG, ELF, PE, ZIP, file systems and many other formats and shows their fields as a tree; you can describe your own formats in a C-like template language. It compares files and makes patches, computes CRCs and hashes, opens disks read-only, and disassembles STM32, AVR and ESP32 firmware. Programs and AI agents can work with it over MCP and a local API, and there is a command line for batch jobs.</p>
-        <p class="docs-link"><a class="btn btn--ghost btn--sm" href="/althex/docs/">Read the docs <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    <div class="promo-layout">
+      <div class="promo-main">
+      <section class="section">
+        <h2 class="section-title">About</h2>
+        <div class="panel">
+          <p>AltHex is a hex editor for files of any size, disks, disk images and firmware. A file of any size opens at once, because AltHex reads only the parts you look at, and edits are written only when you save. It recognizes PNG, ELF, PE, ZIP, file systems and many other formats and shows their fields as a tree; you can describe your own formats in a C-like template language. It compares files and makes patches, computes CRCs and hashes, opens disks read-only, and disassembles STM32, AVR and ESP32 firmware. Programs and AI agents can work with it over MCP and a local API, and there is a command line for batch jobs.</p>
+          <p class="docs-link"><a class="btn btn--ghost btn--sm" href="/althex/docs/">Read the docs <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="section-title">Features</h2>
+        <ul class="features-list">
+          <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Open source (MIT)</li>
+          <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>No dependencies</li>
+          <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Single executable file</li>
+          <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Files of any size</li>
+          <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Unlimited undo and redo</li>
+          <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Keyboard shortcuts</li>
+        </ul>
+      </section>
       </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Features</h2>
-      <ul class="features-list">
-        <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Open source (MIT)</li>
-        <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>No dependencies</li>
-        <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Single executable file</li>
-        <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Files of any size</li>
-        <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Unlimited undo and redo</li>
-        <li><svg class="features-list__check" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Keyboard shortcuts</li>
-      </ul>
-    </section>
+      <aside class="promo-aside" aria-label="Partner offer">
+        <div class="promo" data-promo>
+          <p class="promo__note">Little-endian, big uptime.<span>I host my own projects on PetroSky.</span><span class="promo__sign"><b>Ivan Poluianov</b> &middot; author of AltBins</span></p>
+          <div class="promo__brand">
+            <div class="promo__logo" aria-hidden="true">PS</div>
+            <p class="promo__name">PetroSky <small>Linux VPS</small></p>
+          </div>
+          <ul class="promo__list">
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> No traffic limits</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> No resource overselling</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ultra-low latency</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Pay with Crypto, PayPal or card</li>
+          </ul>
+          <a class="btn btn--primary" href="https://client.petrosky.io/aff.php?aff=471" target="_blank" rel="sponsored noopener">Get a VPS <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></a>
+          <p class="promo__fine">Affiliate link &middot; supports AltBins at no cost to you</p>
+        </div>
+      </aside>
+    </div>
 
     <section class="section">
       <h2 class="section-title">What it does</h2>
@@ -218,6 +249,6 @@
     </div>
   </footer>
 
-  <script src="/js/site.js?v=3"></script>
+  <script src="/js/site.js?v=4"></script>
 </body>
 </html>

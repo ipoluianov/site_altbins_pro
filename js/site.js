@@ -25,6 +25,45 @@
     });
   }
 
+  // Screenshot viewer: <a class="screenshot" href="full.png" data-zoom>
+  var shots = Array.prototype.slice.call(document.querySelectorAll('[data-zoom]'));
+  if (shots.length && window.HTMLDialogElement) {
+    var dlg = document.createElement('dialog');
+    dlg.className = 'zoom';
+    dlg.tabIndex = -1;
+    dlg.innerHTML = '<img alt="">' +
+      '<button class="zoom__btn zoom__close" type="button" aria-label="Close">&times;</button>' +
+      '<button class="zoom__btn zoom__prev" type="button" aria-label="Previous">&lsaquo;</button>' +
+      '<button class="zoom__btn zoom__next" type="button" aria-label="Next">&rsaquo;</button>';
+    document.body.appendChild(dlg);
+    var big = dlg.querySelector('img');
+    var prev = dlg.querySelector('.zoom__prev');
+    var next = dlg.querySelector('.zoom__next');
+    var current = 0;
+    var show = function (i) {
+      current = (i + shots.length) % shots.length;
+      big.src = shots[current].href;
+      big.alt = shots[current].querySelector('img').alt;
+    };
+    prev.hidden = next.hidden = shots.length < 2;
+    shots.forEach(function (a, i) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        show(i);
+        dlg.showModal();
+        dlg.focus(); // keep the focus ring off the close button
+      });
+    });
+    prev.addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
+    next.addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
+    dlg.addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('keydown', function (e) {
+      if (shots.length < 2) return;
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  }
+
   // Highlight the visitor's OS: <a data-os="windows|macos|linux">
   var osCards = document.querySelectorAll('[data-os]');
   if (osCards.length) {
