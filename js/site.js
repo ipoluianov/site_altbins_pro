@@ -12,11 +12,13 @@
     });
   });
 
-  // Partner card: show "Download started" when a download is clicked
+  // Partner card: confirm a download click or a copied install command
   var promo = document.querySelector('[data-promo]');
   if (promo) {
+    var status = promo.querySelector('.promo__started span');
     document.querySelectorAll('.file-row .btn, .download-card .btn, [data-copy="install-cmd"]').forEach(function (el) {
       el.addEventListener('click', function () {
+        if (status) status.textContent = el.dataset.copy ? 'Install command copied' : 'Download started';
         promo.classList.add('promo--started');
         promo.classList.remove('promo--pulse');
         void promo.offsetWidth; // restart the animation
