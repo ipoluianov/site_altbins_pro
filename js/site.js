@@ -12,6 +12,19 @@
     });
   });
 
+  // Partner card: show "Download started" when a download is clicked
+  var promo = document.querySelector('[data-promo]');
+  if (promo) {
+    document.querySelectorAll('.file-row .btn, .download-card .btn, [data-copy="install-cmd"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        promo.classList.add('promo--started');
+        promo.classList.remove('promo--pulse');
+        void promo.offsetWidth; // restart the animation
+        promo.classList.add('promo--pulse');
+      });
+    });
+  }
+
   // Highlight the visitor's OS: <a data-os="windows|macos|linux">
   var osCards = document.querySelectorAll('[data-os]');
   if (osCards.length) {

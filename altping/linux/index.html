@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=3">
+  <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body data-repo="ipoluianov/altping">
 
@@ -79,93 +79,101 @@
       </div>
     </header>
 
-    <section class="section">
-      <h2 class="section-title">Quick install</h2>
-      <div class="panel">
-        <p>Installs AltPing for the current user, without root, and adds it to the app menu. It picks the x64 or arm64 build for your machine.</p>
-        <div class="cmd"><code id="install-cmd" class="cmd__text">wget -qO- https://github.com/ipoluianov/altping/releases/latest/download/linux-install.sh | bash</code><button class="copy-btn" type="button" data-copy="install-cmd" aria-label="Copy command" title="Copy"><svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 00-1.5-1.5H3.5A1.5 1.5 0 002 3.5V9a1.5 1.5 0 001.5 1.5H5.5"/></svg><svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></button></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Downloads</h2>
-      <div class="file-group">
-        <p class="file-group__title">x64 (x86-64)</p>
-        <ul class="file-list">
-          <li class="file-row">
-            <div class="file-row__name">altping-linux-amd64<span class="file-row__kind">Portable binary, run it from anywhere</span></div>
-            <span class="file-row__size" data-asset-size="^altping-linux-amd64$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-amd64"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-          <li class="file-row">
-            <div class="file-row__name"><span data-asset-name="-linux-amd64\.tar\.gz$">altping-linux-amd64.tar.gz</span><span class="file-row__kind">Archive with the binary, icon and menu entry</span></div>
-            <span class="file-row__size" data-asset-size="-linux-amd64\.tar\.gz$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest" data-asset="-linux-amd64\.tar\.gz$"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-          <li class="file-row">
-            <div class="file-row__name">altping-linux-amd64.deb<span class="file-row__kind">Debian, Ubuntu, Mint</span></div>
-            <span class="file-row__size" data-asset-size="^altping-linux-amd64\.deb$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-amd64.deb"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-          <li class="file-row">
-            <div class="file-row__name">altping-linux-amd64.rpm<span class="file-row__kind">Fedora, RHEL, openSUSE</span></div>
-            <span class="file-row__size" data-asset-size="^altping-linux-amd64\.rpm$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-amd64.rpm"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-        </ul>
-      </div>
-      <div class="file-group">
-        <p class="file-group__title">arm64 (AArch64)</p>
-        <ul class="file-list">
-          <li class="file-row">
-            <div class="file-row__name">altping-linux-arm64<span class="file-row__kind">Portable binary, run it from anywhere</span></div>
-            <span class="file-row__size" data-asset-size="^altping-linux-arm64$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-arm64"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-          <li class="file-row">
-            <div class="file-row__name"><span data-asset-name="-linux-arm64\.tar\.gz$">altping-linux-arm64.tar.gz</span><span class="file-row__kind">Archive with the binary, icon and menu entry</span></div>
-            <span class="file-row__size" data-asset-size="-linux-arm64\.tar\.gz$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest" data-asset="-linux-arm64\.tar\.gz$"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-          <li class="file-row">
-            <div class="file-row__name">altping-linux-arm64.deb<span class="file-row__kind">Debian, Ubuntu, Mint</span></div>
-            <span class="file-row__size" data-asset-size="^altping-linux-arm64\.deb$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-arm64.deb"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-          <li class="file-row">
-            <div class="file-row__name">altping-linux-arm64.rpm<span class="file-row__kind">Fedora, RHEL, openSUSE</span></div>
-            <span class="file-row__size" data-asset-size="^altping-linux-arm64\.rpm$"></span>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-arm64.rpm"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Notes</h2>
-      <div class="panel">
-        <ul class="note-list">
-          <li><b>Ping without root.</b> AltPing uses the kernel's unprivileged ICMP sockets. They are allowed by default on systemd 243 and later (Ubuntu 20.04+, Debian 11+, Fedora, Arch). If ping fails for every host and the status bar shows no mode, allow them for all users. TCP checks work in any case.
-            <div class="cmd"><code id="sysctl-cmd" class="cmd__text">echo 'net.ipv4.ping_group_range = 0 2147483647' | sudo tee /etc/sysctl.d/99-ping.conf &amp;&amp; sudo sysctl --system</code><button class="copy-btn" type="button" data-copy="sysctl-cmd" aria-label="Copy command" title="Copy"><svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 00-1.5-1.5H3.5A1.5 1.5 0 002 3.5V9a1.5 1.5 0 001.5 1.5H5.5"/></svg><svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></button></div>
-          </li>
-          <li><b>System tray.</b> KDE, XFCE and Cinnamon show the tray icon as is. GNOME needs the <a href="https://extensions.gnome.org/extension/615/appindicator-support/" target="_blank" rel="noopener noreferrer">AppIndicator</a> extension. Without a tray, &ldquo;hide to tray&rdquo; minimizes the window.</li>
-          <li><b>Display.</b> AltPing needs X11. It runs under Wayland through XWayland, which GNOME and KDE have. glibc-based distributions only (not Alpine).</li>
-          <li><b>Uninstall.</b> Packages are removed with the package manager. The quick install adds <b>Uninstall</b> to the menu entry (right-click) and leaves <code>~/.altbins/.altping-uninstall.sh</code>.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Partner</h2>
-      <aside class="partner">
-        <div class="partner__logo" aria-hidden="true">u00</div>
-        <div>
-          <p class="partner__name">u00.io <span class="tag">lightweight monitoring</span></p>
-          <p class="partner__desc">Send values from scripts, servers or apps and watch them on a live chart on a public page. No registration needed. AltPing uses it to share a host's ping time.</p>
+    <div class="dl-layout">
+      <div class="dl-main">
+      <section class="section">
+        <h2 class="section-title">Quick install</h2>
+        <div class="panel">
+          <p>Installs AltPing for the current user, without root, and adds it to the app menu. It picks the x64 or arm64 build for your machine.</p>
+          <div class="cmd"><code id="install-cmd" class="cmd__text">wget -qO- https://github.com/ipoluianov/altping/releases/latest/download/linux-install.sh | bash</code><button class="copy-btn" type="button" data-copy="install-cmd" aria-label="Copy command" title="Copy"><svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 00-1.5-1.5H3.5A1.5 1.5 0 002 3.5V9a1.5 1.5 0 001.5 1.5H5.5"/></svg><svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></button></div>
         </div>
-        <a class="btn btn--ghost" href="https://u00.io/?utm_source=altbins.pro&amp;utm_medium=referral&amp;utm_campaign=altping" target="_blank" rel="noopener">Open u00.io <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></a>
+      </section>
+      <section class="section">
+        <h2 class="section-title">Downloads</h2>
+        <div class="file-group">
+          <p class="file-group__title">x64 (x86-64)</p>
+          <ul class="file-list">
+            <li class="file-row">
+              <div class="file-row__name">altping-linux-amd64<span class="file-row__kind">Portable binary, run it from anywhere</span></div>
+              <span class="file-row__size" data-asset-size="^altping-linux-amd64$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-amd64"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+            <li class="file-row">
+              <div class="file-row__name"><span data-asset-name="-linux-amd64\.tar\.gz$">altping-linux-amd64.tar.gz</span><span class="file-row__kind">Archive with the binary, icon and menu entry</span></div>
+              <span class="file-row__size" data-asset-size="-linux-amd64\.tar\.gz$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest" data-asset="-linux-amd64\.tar\.gz$"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+            <li class="file-row">
+              <div class="file-row__name">altping-linux-amd64.deb<span class="file-row__kind">Debian, Ubuntu, Mint</span></div>
+              <span class="file-row__size" data-asset-size="^altping-linux-amd64\.deb$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-amd64.deb"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+            <li class="file-row">
+              <div class="file-row__name">altping-linux-amd64.rpm<span class="file-row__kind">Fedora, RHEL, openSUSE</span></div>
+              <span class="file-row__size" data-asset-size="^altping-linux-amd64\.rpm$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-amd64.rpm"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+          </ul>
+        </div>
+        <div class="file-group">
+          <p class="file-group__title">arm64 (AArch64)</p>
+          <ul class="file-list">
+            <li class="file-row">
+              <div class="file-row__name">altping-linux-arm64<span class="file-row__kind">Portable binary, run it from anywhere</span></div>
+              <span class="file-row__size" data-asset-size="^altping-linux-arm64$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-arm64"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+            <li class="file-row">
+              <div class="file-row__name"><span data-asset-name="-linux-arm64\.tar\.gz$">altping-linux-arm64.tar.gz</span><span class="file-row__kind">Archive with the binary, icon and menu entry</span></div>
+              <span class="file-row__size" data-asset-size="-linux-arm64\.tar\.gz$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest" data-asset="-linux-arm64\.tar\.gz$"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+            <li class="file-row">
+              <div class="file-row__name">altping-linux-arm64.deb<span class="file-row__kind">Debian, Ubuntu, Mint</span></div>
+              <span class="file-row__size" data-asset-size="^altping-linux-arm64\.deb$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-arm64.deb"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+            <li class="file-row">
+              <div class="file-row__name">altping-linux-arm64.rpm<span class="file-row__kind">Fedora, RHEL, openSUSE</span></div>
+              <span class="file-row__size" data-asset-size="^altping-linux-arm64\.rpm$"></span>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/ipoluianov/altping/releases/latest/download/altping-linux-arm64.rpm"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7 10l5 5 5-5M4 16.5v2A2 2 0 0 0 6 20.5h12a2 2 0 0 0 2-2v-2"/></svg> Download</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="section-title">Notes</h2>
+        <div class="panel">
+          <ul class="note-list">
+            <li><b>Ping without root.</b> AltPing uses the kernel's unprivileged ICMP sockets. They are allowed by default on systemd 243 and later (Ubuntu 20.04+, Debian 11+, Fedora, Arch). If ping fails for every host and the status bar shows no mode, allow them for all users. TCP checks work in any case.
+              <div class="cmd"><code id="sysctl-cmd" class="cmd__text">echo 'net.ipv4.ping_group_range = 0 2147483647' | sudo tee /etc/sysctl.d/99-ping.conf &amp;&amp; sudo sysctl --system</code><button class="copy-btn" type="button" data-copy="sysctl-cmd" aria-label="Copy command" title="Copy"><svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 00-1.5-1.5H3.5A1.5 1.5 0 002 3.5V9a1.5 1.5 0 001.5 1.5H5.5"/></svg><svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></button></div>
+            </li>
+            <li><b>System tray.</b> KDE, XFCE and Cinnamon show the tray icon as is. GNOME needs the <a href="https://extensions.gnome.org/extension/615/appindicator-support/" target="_blank" rel="noopener noreferrer">AppIndicator</a> extension. Without a tray, &ldquo;hide to tray&rdquo; minimizes the window.</li>
+            <li><b>Display.</b> AltPing needs X11. It runs under Wayland through XWayland, which GNOME and KDE have. glibc-based distributions only (not Alpine).</li>
+            <li><b>Uninstall.</b> Packages are removed with the package manager. The quick install adds <b>Uninstall</b> to the menu entry (right-click) and leaves <code>~/.altbins/.altping-uninstall.sh</code>.</li>
+          </ul>
+        </div>
+      </section>
+      </div>
+      <aside class="dl-aside" aria-label="Partner offer">
+        <div class="promo" data-promo>
+          <p class="promo__started" role="status"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Download started</p>
+          <p class="promo__note">Servers love being pinged.<span>I host my own projects on PetroSky.</span><span class="promo__sign"><b>Ivan Poluianov</b> &middot; author of AltBins</span></p>
+          <div class="promo__brand">
+            <div class="promo__logo" aria-hidden="true">PS</div>
+            <p class="promo__name">PetroSky <small>Linux VPS</small></p>
+          </div>
+          <ul class="promo__list">
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> No traffic limits</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> No resource overselling</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ultra-low latency</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Pay with Crypto, PayPal or card</li>
+          </ul>
+          <a class="btn btn--primary" href="https://client.petrosky.io/aff.php?aff=471" target="_blank" rel="sponsored noopener">Get a VPS <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg></a>
+          <p class="promo__fine">Affiliate link &middot; supports AltBins at no cost to you</p>
+        </div>
       </aside>
-    </section>
+    </div>
 
     <section class="section">
       <h2 class="section-title">More</h2>
@@ -181,6 +189,6 @@
     </div>
   </footer>
 
-  <script src="/js/site.js?v=2"></script>
+  <script src="/js/site.js?v=3"></script>
 </body>
 </html>
