@@ -229,6 +229,13 @@ main {
   color: var(--muted);
 }
 
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
 .platform-strip {
   margin-top: 2.5rem;
   display: grid;

@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AltBins.pro — portable open-source utilities</title>
-  <meta name="description" content="Free open-source desktop utilities for Windows, macOS and Linux. One portable file on Windows and Linux, a signed .dmg on macOS.">
+  <meta name="description" content="Free open-source desktop utilities for Windows, macOS and Linux. One portable file, no installer, no Electron, .NET or Java runtime. Nothing is sent anywhere unless you ask.">
   <link rel="canonical" href="https://altbins.pro/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AltBins.pro">
   <meta property="og:title" content="AltBins.pro — portable open-source utilities">
-  <meta property="og:description" content="Free open-source desktop utilities for Windows, macOS and Linux. One portable file on Windows and Linux, a signed .dmg on macOS.">
+  <meta property="og:description" content="Free open-source desktop utilities for Windows, macOS and Linux. One portable file, no installer, no Electron, .NET or Java runtime. Nothing is sent anywhere unless you ask.">
   <meta property="og:url" content="https://altbins.pro/">
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">
@@ -21,7 +21,7 @@
       "@id": "https://altbins.pro/#website",
       "name": "AltBins.pro",
       "url": "https://altbins.pro/",
-      "description": "Free open-source desktop utilities for Windows, macOS and Linux. One portable file on Windows and Linux, a signed .dmg on macOS.",
+      "description": "Free open-source desktop utilities for Windows, macOS and Linux. One portable file, no installer, no Electron, .NET or Java runtime. Nothing is sent anywhere unless you ask.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://altbins.pro/#author"
@@ -76,7 +76,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=7">
+  <link rel="stylesheet" href="/css/style.css?v=8">
 </head>
 <body>
 
@@ -93,9 +93,13 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">free &middot; open source</p>
+        <p class="eyebrow">free &middot; open source &middot; written in Go</p>
         <h1 class="hero__title">Small desktop utilities. One file each.</h1>
-        <p class="hero__lead">Open-source tools for Windows, macOS and Linux. On Windows and Linux every utility is a single portable executable: download it and run it, there is nothing to install. On macOS it comes as a signed and notarized .dmg.</p>
+        <p class="hero__lead">Open-source tools for Windows, macOS and Linux, compiled to native code. No installer, no Electron, no .NET or Java to set up: download one file and run it. Nothing is sent anywhere unless you ask.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#utilities">See the utilities</a>
+          <a class="btn btn--ghost" href="#about">Why AltBins</a>
+        </div>
         <div class="platform-strip">
         <div class="platform-strip__item"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1"/><rect x="13" y="13" width="7.5" height="7.5" rx="1"/></svg><div><span class="platform-strip__name">Windows</span><span class="platform-strip__desc">portable .exe</span></div></div>
         <div class="platform-strip__item"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3.5" width="18" height="17" rx="2"/><path d="m7.5 10 2.5 2.5-2.5 2.5M12.5 15.5h4"/></svg><div><span class="platform-strip__name">Linux</span><span class="platform-strip__desc">portable binary &middot; .deb &middot; .rpm</span></div></div>
