@@ -20,7 +20,10 @@ Free open-source desktop utilities for Windows, macOS and Linux. Plain HTML / CS
 ├── favicon.svg
 ├── robots.txt                 # allows search and AI crawlers, points to the sitemap
 ├── sitemap.xml                # every page; update when adding one
-└── llms.txt                   # site summary for AI assistants
+├── llms.txt                   # site summary for AI assistants
+├── llms-full.txt              # llms.txt + every docs page in Markdown (generated)
+├── tools/docs-md.py           # makes docs/**/index.md and llms-full.txt
+└── .nojekyll                  # GitHub Pages: serve the .md files as they are
 ```
 
 ## Run locally
@@ -43,8 +46,16 @@ After changing `css/style.css` or `js/site.js`, bump `?v=` in their links on eve
 - `<a data-os="windows|macos|linux">` is highlighted when it matches the visitor's OS
 - `<button data-copy="element-id">` copies that element's text
 
+## Markdown for AI agents
+
+Each docs page has a Markdown copy (`index.md` next to `index.html`, linked with `<link rel="alternate" type="text/markdown">`), and `llms-full.txt` is `llms.txt` followed by all of them. After changing a docs page or `llms.txt`, regenerate them:
+
+```bash
+python3 tools/docs-md.py
+```
+
 ## Adding a utility
 
 1. Copy `altping/` → `mytool/`, edit the pages and `data-repo`
 2. Add a card on `index.html`
-3. Add the new pages to `sitemap.xml` and `llms.txt`; fix `canonical`, `og:*` and the JSON-LD block in each page's `<head>`
+3. Add the new pages to `sitemap.xml` and `llms.txt` (docs pages also to `PAGES` in `tools/docs-md.py`); fix `canonical`, `og:*` and the JSON-LD block in each page's `<head>`
