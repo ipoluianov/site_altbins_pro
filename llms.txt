@@ -2,7 +2,7 @@
 
 > Free, open-source (MIT) desktop utilities for Windows, macOS and Linux by Ivan Poluianov. On Windows and Linux each utility is a single portable executable with no installer and no dependencies; on macOS it is a signed and notarized .dmg for Apple Silicon. Linux builds are x64 and arm64, also as .deb and .rpm packages and a one-line install script.
 
-Downloads come from the GitHub releases of each project. Every app is available in 12 or more languages with a light or dark theme.
+Downloads come from the GitHub releases of each project. Every app has a light and a dark theme; AltPing and AltHex speak 12 languages, AltSysInfo 31, AltSerialPort English and Russian.
 
 The idea is software that is easy to install: download one file, run it, and it works. The apps are written in Go and compiled to native code: no Electron, no .NET or Java runtime, no background services.
 
@@ -48,12 +48,19 @@ Hardware and system information viewer with a GUI. It shows the CPU, memory modu
 - [AltSysInfo for Linux](https://altbins.pro/altsysinfo/linux/): portable binary, .deb, .rpm, one-line install
 - [Source code](https://github.com/ipoluianov/altsysinfo): GitHub, MIT license
 
+## AltSerialPort
+
+Serial port terminal for low-level debugging of hardware: microcontroller boards, USB-UART adapters, modems, GPS and industrial devices. Lists ports with their chips (CH340, CP2102…), reopens the port after a board reset, re-flash or pulled cable, any baud rate and frame, changed on the open port. Text (ANSI colors), Hex and Mixed views with timestamps down to microseconds; keys sent as in a console, commands with history, escapes, hex bytes and checksums (CRC-16 Modbus, CCITT, XMODEM, CRC-8, CRC-32, XOR, Sum, LRC); DTR/RTS switching, BREAK, Arduino/ESP32 reset. Logging, live plots of numbers in the data, macros, highlight rules and triggers, a second port and a bridge (also to TCP), statistics, baud rate detection, XMODEM/YMODEM file transfer, profiles. Network ports tcp://, tcp-listen://, rfc2217://; RS-485 mode on Linux. Command line (`altserialport list`, a console terminal, `altserialport send … --expect OK`) and an MCP server (`claude mcp add altserialport -- altserialport mcp`) for AI agents to work with a real board. On Linux the user must be in the dialout group.
+
+- [AltSerialPort](https://altbins.pro/altserialport/): overview and features
+- [AltSerialPort docs](https://altbins.pro/altserialport/docs/index.md): ports, views, sending, lines, logs, tools, keyboard shortcuts, command line, MCP (Markdown)
+- [AltSerialPort for Windows](https://altbins.pro/altserialport/windows/): portable .exe (x64)
+- [AltSerialPort for macOS](https://altbins.pro/altserialport/macos/): signed .dmg (Apple Silicon)
+- [AltSerialPort for Linux](https://altbins.pro/altserialport/linux/): portable binary, .deb, .rpm, one-line install, dialout group
+- [Source code](https://github.com/ipoluianov/altserialport): GitHub, MIT license
+
 ## Author
 
 Ivan Poluianov, a software engineer with more than 20 years of experience in commercial software: industrial SCADA systems, and software and firmware for laboratory analytical instruments such as mass spectrometers and gas chromatographs. Skills: Go, C/C++, C# / .NET, Assembler, STM32, databases.
 
 - [Author on GitHub](https://github.com/ipoluianov)
-
-## Optional
-
-- [AltSerialPort](https://altbins.pro/altserialport/): serial port terminal, in development

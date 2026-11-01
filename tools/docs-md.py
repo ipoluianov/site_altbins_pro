@@ -21,6 +21,7 @@ PAGES = [
     'althex/docs/templates',
     'althex/docs/api',
     'altsysinfo/docs',
+    'altserialport/docs',
 ]
 
 

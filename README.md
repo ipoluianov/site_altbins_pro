@@ -14,7 +14,7 @@ Free open-source desktop utilities for Windows, macOS and Linux. Plain HTML / CS
 │   └── docs/index.html
 ├── althex/                    # same layout as altping/; docs/ has templates/ and api/
 ├── altsysinfo/                # same layout as altping/
-├── altserialport/index.html   # "in development" placeholder
+├── altserialport/             # same layout as altping/ (no screenshot yet)
 ├── css/style.css              # design tokens, dark + light (prefers-color-scheme)
 ├── js/site.js                 # copy buttons, latest release info, OS detection
 ├── favicon.svg

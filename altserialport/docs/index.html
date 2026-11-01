@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltSerialPort Docs — AltBins.pro</title>
+  <meta name="description" content="How to use AltSerialPort: ports and reconnection, views, sending, lines, logs, tools, keyboard shortcuts, the command line and the MCP server.">
+  <link rel="canonical" href="https://altbins.pro/altserialport/docs/">
+  <link rel="alternate" type="text/markdown" href="https://altbins.pro/altserialport/docs/index.md" title="Markdown">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AltBins.pro">
+  <meta property="og:title" content="AltSerialPort Docs — AltBins.pro">
+  <meta property="og:description" content="How to use AltSerialPort: ports and reconnection, views, sending, lines, logs, tools, keyboard shortcuts, the command line and the MCP server.">
+  <meta property="og:url" content="https://altbins.pro/altserialport/docs/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AltBins.pro",
+          "item": "https://altbins.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AltSerialPort",
+          "item": "https://altbins.pro/altserialport/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Docs",
+          "item": "https://altbins.pro/altserialport/docs/"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "AltSerialPort Docs",
+      "description": "How to use AltSerialPort: ports and reconnection, views, sending, lines, logs, tools, keyboard shortcuts, the command line and the MCP server.",
+      "url": "https://altbins.pro/altserialport/docs/",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Ivan Poluianov",
+        "url": "https://github.com/ipoluianov"
+      },
+      "about": {
+        "@id": "https://altbins.pro/altserialport/#app"
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=8">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-logo"><svg class="site-logo__mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M7 8.5l3.5 3.5L7 15.5M12.5 15.5H17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="site-logo__text">Alt<span>Bins</span>.pro</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#utilities">Utilities</a>
+        <a href="https://github.com/ipoluianov" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="site-nav__label">GitHub</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="docs">
+    <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/#utilities">Utilities</a>
+      <span aria-hidden="true">/</span>
+      <a href="/altserialport/">AltSerialPort</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Docs</span>
+    </nav>
+    <header class="product-head">
+      <img class="product-head__icon" src="/altserialport/icon.svg" alt="" width="64" height="64">
+      <div>
+        <h1 class="product-head__title">AltSerialPort Docs</h1>
+        <p class="product-head__desc">How to use the app</p>
+        <div class="tags"></div>
+      </div>
+    </header>
+
+
+      <h2 class="section-title" id="quick-start">Quick start</h2>
+      <div class="panel">
+        <ol>
+          <li>Choose a port in the toolbar. Each port shows its chip, for example <code>ttyUSB0 &middot; CH340</code> or <code>COM5 &middot; CP2102</code>.</li>
+          <li>Choose the baud rate and the frame (8N1 by default) and press <b>Connect</b> or <kbd>F5</kbd>.</li>
+          <li>Read the data in the terminal. Type in the terminal to send keys at once, or type a command in the send line below and press <kbd>Enter</kbd>.</li>
+        </ol>
+        <p>Everything else is in the &#9776; menu and in the right-click menus of the terminal, the send line and the status bar.</p>
+      </div>
+
+      <h2 class="section-title" id="window">The window</h2>
+      <div class="panel">
+        <table class="docs-table">
+          <tr><td>Toolbar</td><td>&#9776; menu; port, baud, frame, Connect; Text / Hex / Mixed; timestamps, pause, record, find, clear.</td></tr>
+          <tr><td>Terminal</td><td>The data. Right-click: copy, timestamps, line breaks, encoding, packet gap, hex width, wrap, sent data, echo.</td></tr>
+          <tr><td>Send line</td><td>Command, Text/Hex, line ending, Send. Right-click: checksum, repeat, send file, escapes.</td></tr>
+          <tr><td>Status bar</td><td>State, port, RX/TX counters, log, lines. Click DTR or RTS to switch it; right-click: reset board, BREAK, counters.</td></tr>
+        </table>
+      </div>
+
+      <h2 class="section-title" id="ports">Ports</h2>
+      <div class="panel">
+        <ul>
+          <li>A device you plug in appears in the list by itself, marked as new. It is selected when no port is open.</li>
+          <li>A port that is not in the list, such as a pseudo terminal or a udev link, is opened by its path in <b>Other port&hellip;</b>.</li>
+          <li><b>Reconnect.</b> When the board resets, is re-flashed or its cable is pulled, AltSerialPort waits and opens the port again when it is back, even under another name. The log keeps a note of the gap.</li>
+          <li><b>Any speed and frame.</b> Any baud rate (74880, 250000, 2000000&hellip;), 5 to 8 data bits, none, even, odd, mark or space parity, 1, 1.5 or 2 stop bits, RTS/CTS and XON/XOFF flow control. The speed and the frame change on the open port.</li>
+          <li><b>Network ports.</b> Type <code>tcp://host:port</code>, <code>tcp-listen://:5000</code> or <code>rfc2217://host:port</code> (a serial port of a network server) in <b>Other port&hellip;</b>.</li>
+          <li><b>RS-485 mode</b> on Linux.</li>
+          <li><b>Busy port.</b> When another program holds the port, AltSerialPort tells which one.</li>
+          <li><b>Per device.</b> The speed, the view, the line ending and the command history are remembered for each device and applied when it is chosen.</li>
+          <li><b>Several windows.</b> Each copy of the program is a window for one port. A port is opened exclusively, so two windows never read one port.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title" id="views">Views and timestamps</h2>
+      <div class="panel">
+        <table class="docs-table">
+          <tr><td>Text</td><td>The data as text, with ANSI colors.</td></tr>
+          <tr><td>Hex</td><td>Rows of bytes. A pause starts a new packet; long packets show offsets.</td></tr>
+          <tr><td>Mixed</td><td>Text with every control byte shown as <code>\r</code>, <code>\n</code>, <code>\x00</code>.</td></tr>
+        </table>
+        <p>Switching the view lays out all the data again and keeps your place. Timestamps show the time of day, the time with microseconds, the time since the previous row or since the connection.</p>
+        <p>The terminal keeps a million rows by default; drawing, scrolling and search stay instant.</p>
+      </div>
+
+      <h2 class="section-title" id="sending">Sending</h2>
+      <div class="panel">
+        <ul>
+          <li><b>In the terminal</b> keys go to the device at once, as in a console: <kbd>Ctrl</kbd>+<kbd>A</kbd>&hellip;<kbd>Z</kbd> send control codes, the arrows and <kbd>Home</kbd>/<kbd>End</kbd> send VT100 sequences. <kbd>Ctrl</kbd>+<kbd>C</kbd> copies when text is selected and sends 0x03 otherwise.</li>
+          <li><b>In the send line</b> you type whole commands, with history. Text may have <code>\r</code>, <code>\n</code> and <code>\xHH</code> escapes; in Hex mode type bytes like <code>01 03 00 0A</code>.</li>
+          <li><b>Line ending</b>: none, CR, LF or CR LF.</li>
+          <li><b>Checksum</b> (right-click the send line): CRC-16 Modbus, CCITT, XMODEM, CRC-8, CRC-32, XOR, Sum or LRC is added to each command.</li>
+          <li><b>Repeat</b> sends the command again by a timer.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title" id="lines">Lines</h2>
+      <div class="panel">
+        <ul>
+          <li>Click <b>DTR</b> or <b>RTS</b> in the status bar to switch it. CTS, DSR, DCD and RI are shown live.</li>
+          <li>Right-click the status bar to send BREAK or to reset an Arduino or ESP32 board with its DTR/RTS sequence.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title" id="logs">Logs and saving</h2>
+      <div class="panel">
+        <ul>
+          <li><b>Record</b> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>) writes the data to a text file with timestamps or to a raw binary file. It is written from the reader of the port, so nothing is lost while the window is busy.</li>
+          <li><b>Automatic logs</b> record each connection of a device, starting a new file past a set size.</li>
+          <li>Save the screen as text, HTML with colors, a hex dump or raw bytes. Copy a selection as text, hex or a C array.</li>
+          <li>Open a saved log or any file, also by dropping it on the window.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title" id="tools">Tools</h2>
+      <div class="panel">
+        <p>These are in the &#9776; menu.</p>
+        <table class="docs-table">
+          <tr><td>Plot</td><td>Numbers in the received lines (<code>23.4</code>, <code>t=23.4 h=41</code>, <code>temp:23.4</code>) become live chart series with no setup.</td></tr>
+          <tr><td>Macros</td><td>Named commands in a side panel, run with <kbd>Shift</kbd>+<kbd>F1</kbd>&hellip;<kbd>F12</kbd>. A macro may have several lines with <code>#wait 100</code> between them.</td></tr>
+          <tr><td>Highlight and triggers</td><td>A text, a regular expression or hex bytes colors its lines, beeps, shows a notification, answers the device, pauses the screen or stops the log. Log levels (ERROR, WARN&hellip;) come preset.</td></tr>
+          <tr><td>Find with a filter</td><td>Shows only the rows that match, by text or a regular expression.</td></tr>
+          <tr><td>Second port</td><td>The data of two adapters on one time line (to sniff both sides of a link) or side by side, and a bridge that passes the data between them, also to a TCP port.</td></tr>
+          <tr><td>Statistics</td><td>Speed, lines a second, line load, framing, parity and overrun errors where the driver reports them, response times.</td></tr>
+          <tr><td>Tests</td><td>Response time after each sent command, a loopback test, and baud rate detection from the data of the device.</td></tr>
+          <tr><td>File transfer</td><td>Send a file as it is, line by line with delays, or by XMODEM, XMODEM-1K or YMODEM. Receive by XMODEM or YMODEM.</td></tr>
+          <tr><td>Profiles</td><td>Save the settings under a name, export and import them.</td></tr>
+        </table>
+      </div>
+
+      <h2 class="section-title" id="keyboard-shortcuts">Keyboard shortcuts</h2>
+      <div class="panel">
+        <table class="docs-table docs-table--keys">
+          <tr><td><kbd>F5</kbd></td><td>Connect or disconnect</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd></td><td>Text, Hex, Mixed view</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd></td><td>Timestamps</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>Pause</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td><td>Record to a file</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></td><td>Clear</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd>, <kbd>F3</kbd></td><td>Find, find next</td></tr>
+          <tr><td><kbd>F6</kbd></td><td>Switch between the terminal and the send line</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>=</kbd> / <kbd>Ctrl</kbd>+<kbd>-</kbd> / <kbd>Ctrl</kbd>+<kbd>0</kbd></td><td>Font size</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd></td><td>Plot</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td><td>Macros</td></tr>
+          <tr><td><kbd>Shift</kbd>+<kbd>F1</kbd>&hellip;<kbd>F12</kbd></td><td>Run a macro</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td><td>Copy</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Paste to the device</td></tr>
+          <tr><td><kbd>Shift</kbd>+<kbd>PgUp</kbd> / <kbd>PgDn</kbd>, <kbd>Ctrl</kbd>+<kbd>Home</kbd> / <kbd>End</kbd></td><td>Scroll</td></tr>
+          <tr><td><kbd>F1</kbd></td><td>The list of shortcuts</td></tr>
+        </table>
+        <p>On macOS use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd> for the window shortcuts. In the terminal <kbd>Ctrl</kbd> with a letter is sent to the device.</p>
+      </div>
+
+      <h2 class="section-title" id="command-line">Command line</h2>
+      <div class="panel">
+        <pre class="docs-code"><code>altserialport list
+altserialport /dev/ttyUSB0 -b 115200 --timestamp --log session.log   # Ctrl+] quits
+altserialport send COM5 "AT\r" --expect OK --timeout 2s
+altserialport mcp</code></pre>
+        <table class="docs-table">
+          <tr><td><code>list</code></td><td>The ports with their descriptions and USB IDs.</td></tr>
+          <tr><td><code>&lt;port&gt;</code></td><td>A terminal in the console; <kbd>Ctrl</kbd>+<kbd>]</kbd> exits. Options: <code>--hex</code>, <code>--timestamp</code>, <code>--echo</code>, <code>--crlf</code>.</td></tr>
+          <tr><td><code>send</code></td><td>Writes the data, then prints what comes. <code>--expect RE</code> waits for a regular expression and exits with 0 on a match and 1 on timeout, for scripts.</td></tr>
+          <tr><td><code>mcp</code></td><td>An MCP server on stdin/stdout for AI agents.</td></tr>
+        </table>
+        <p>Common options: <code>-b</code> baud rate (115200), <code>-f</code> frame (8N1), <code>--flow</code> none, rtscts or xonxoff, <code>--log FILE</code>. Ports: <code>/dev/ttyUSB0</code>, <code>COM5</code>, <code>tcp://host:port</code>, <code>rfc2217://host:port</code>, <code>tcp-listen://:port</code>.</p>
+        <p>When a window has the port open, the command line attaches to it, and the window shows what is sent and received.</p>
+      </div>
+
+      <h2 class="section-title" id="mcp">AI agents (MCP)</h2>
+      <div class="panel">
+        <p>An MCP client such as Claude Code or Claude Desktop runs <code>altserialport mcp</code>. For Claude Code:</p>
+        <pre class="docs-code"><code>claude mcp add altserialport -- altserialport mcp</code></pre>
+        <p>The agent then works with a real board: <code>list_ports</code>, <code>open_port</code>, <code>close_port</code>, <code>write</code>, <code>read</code>, <code>wait_for</code> a pattern, <code>set_lines</code>, <code>get_signals</code>, <code>send_break</code>, <code>reset_board</code> (ESP32, Arduino) and <code>status</code>. If a window has the port open, the agent works through it and you see every byte.</p>
+      </div>
+
+      <h2 class="section-title" id="good-to-know">Good to know</h2>
+      <div class="panel">
+        <ul>
+          <li>On Linux the serial ports belong to the group <code>dialout</code> (<code>uucp</code> on Arch). If a port cannot be opened, run <code>sudo usermod -aG dialout $USER</code>, then log out and in again.</li>
+          <li>Settings, profiles and logs are in the <code>.altbins/.altserialport</code> folder in your home folder.</li>
+          <li>English and Russian, with a light or dark theme.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; Ivan Poluianov</span>
+      <span>Free and open-source utilities</span>
+    </div>
+  </footer>
+</body>
+</html>
