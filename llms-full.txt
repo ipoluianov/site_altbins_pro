@@ -2,13 +2,13 @@
 
 > Free, open-source (MIT) desktop utilities for Windows, macOS and Linux by Ivan Poluianov. On Windows and Linux each utility is a single portable executable with no installer and no dependencies; on macOS it is a signed and notarized .dmg for Apple Silicon. Linux builds are x64 and arm64, also as .deb and .rpm packages and a one-line install script.
 
-Downloads come from the GitHub releases of each project. Every app is available in 12 languages with a light or dark theme.
+Downloads come from the GitHub releases of each project. Every app is available in 12 or more languages with a light or dark theme.
 
 The idea is software that is easy to install: download one file, run it, and it works. The apps are written in Go and compiled to native code: no Electron, no .NET or Java runtime, no background services.
 
 - Install is optional on Windows and Linux. On Windows the Install link in the status bar copies the .exe into `%USERPROFILE%\.altbins` and adds it to the Start menu, the desktop and "Installed apps"; remove it there or with the Uninstall link. On Linux the one-line install puts the binary into `~/.altbins` for the current user without root and adds a menu entry; remove it with Uninstall in the menu entry or `~/.altbins/.<app>-uninstall.sh`. The .deb and .rpm packages are removed with the package manager. On macOS drag the app to Applications, and to the Trash to remove it.
 - Settings, lists and history live in `~/.altbins/.<app>` in the home folder (`%USERPROFILE%\.altbins\.<app>` on Windows). Uninstalling leaves them; delete the folder to reset the app or clean up.
-- The apps collect no statistics and send nothing anywhere unless the user asks. AltPing contacts only the hosts the user adds and publishes a host's ping time to u00.io only when that is turned on. The AltHex API and MCP server are off until switched on and listen only on the local machine.
+- The apps collect no statistics and send nothing anywhere unless the user asks. AltPing contacts only the hosts the user adds and publishes a host's ping time to u00.io only when that is turned on. The AltHex API and MCP server are off until switched on and listen only on the local machine. AltSysInfo only reads information about the computer and sends it nowhere.
 - Building needs only the Go compiler, no cgo: `git clone https://github.com/ipoluianov/<app> && cd <app> && go build .` Without cgo, every platform builds from any other (`GOOS=windows GOARCH=amd64 go build -ldflags=-H=windowsgui .`). `build/all.sh` in each repository builds all release files.
 
 Full text of all docs in one file: [llms-full.txt](https://altbins.pro/llms-full.txt). Each docs page also has a Markdown copy at `index.md` next to it.
@@ -37,6 +37,17 @@ Hex editor for files of any size, disks, disk images and firmware. A 50 GB file 
 - [AltHex for Linux](https://altbins.pro/althex/linux/): portable binary, .deb, .rpm, one-line install
 - [Source code](https://github.com/ipoluianov/althex): GitHub, MIT license
 
+## AltSysInfo
+
+Hardware and system information viewer with a GUI. It shows the CPU, memory modules, drives and volumes, graphics adapters and displays, network adapters, PCI and USB devices, audio, sensors and battery, sorted into 12 categories. Any value is copied with one click; the CPU, memory, drives and graphics are saved as a PDF report. A built-in PCI ID database finds a vendor or device by ID or name without the internet. Works without root on Linux (reads /proc, /sys and udev; memory modules may need root when udev has no data). 31 languages.
+
+- [AltSysInfo](https://altbins.pro/altsysinfo/): overview, features and screenshot
+- [AltSysInfo docs](https://altbins.pro/altsysinfo/docs/index.md): categories, copying values, PDF report, PCI ID lookup, tray, settings, keyboard shortcuts (Markdown)
+- [AltSysInfo for Windows](https://altbins.pro/altsysinfo/windows/): portable .exe (x64)
+- [AltSysInfo for macOS](https://altbins.pro/altsysinfo/macos/): signed .dmg (Apple Silicon)
+- [AltSysInfo for Linux](https://altbins.pro/altsysinfo/linux/): portable binary, .deb, .rpm, one-line install
+- [Source code](https://github.com/ipoluianov/altsysinfo): GitHub, MIT license
+
 ## Author
 
 Ivan Poluianov, a software engineer with more than 20 years of experience in commercial software: industrial SCADA systems, and software and firmware for laboratory analytical instruments such as mass spectrometers and gas chromatographs. Skills: Go, C/C++, C# / .NET, Assembler, STM32, databases.
@@ -45,7 +56,6 @@ Ivan Poluianov, a software engineer with more than 20 years of experience in com
 
 ## Optional
 
-- [AltSysInfo](https://altbins.pro/altsysinfo/): system and hardware information, in development
 - [AltSerialPort](https://altbins.pro/altserialport/): serial port terminal, in development
 
 ---
@@ -677,3 +687,99 @@ How `propose_edits` works:
 - If the client disconnects or nobody answers within five minutes, the proposal is declined.
 
 Templates applied over the API do not write to the document.
+
+---
+
+# AltSysInfo Docs
+
+Source: https://altbins.pro/altsysinfo/docs/
+
+How to use the app
+
+## Quick start
+
+1. Start AltSysInfo. It opens on **Common**: the CPU, the number of cores, the memory, the drives and the graphics.
+2. Click a category on the left to see more about one part of the computer.
+3. Click the copy button after a value to put it into the clipboard.
+4. Press `Ctrl`+`S` to save the main facts as a PDF report.
+
+The information of a category is read when you open it for the first time. Press `F5` to read it again, for example after you plug in a USB device.
+
+## Categories
+
+|  |  |
+|---|---|
+| Common | The main facts: CPU model and cores, memory, every drive with its type and size, every graphics adapter with its driver. |
+| RAM | The memory modules: model, size and speed of each one. |
+| System | The operating system, its version and kernel, the host name, boot time and uptime, the computer, motherboard and BIOS / firmware. |
+| CPU | The processor model and vendor, family, model and stepping, cores and logical processors, frequencies, cache and instruction set extensions. |
+| Storage | Physical drives with model, type and size. Volumes with mount point, file system, size, used and free space. |
+| Graphics & Displays | Graphics adapters with model, ID, video memory and driver. Displays with manufacturer, model, size and year. |
+| Network | Network interfaces with status, MAC, IPv4 and IPv6 addresses, speed and driver. |
+| PCI Devices | Every PCI device with its class, vendor, name, ID and driver. |
+| USB Devices | Every USB device with its manufacturer, name, ID and speed or driver. |
+| Audio | Sound cards and sound devices. |
+| Sensors | Temperatures and other values the system reports. |
+| Battery | The battery state and charge, and the AC adapter. Empty on a desktop computer. |
+| PCI Vendor/Device | A search in the built-in PCI ID database, see [below](#pci-lookup). |
+
+What a category shows depends on the system: some values are only known on Linux, Windows or macOS. Empty values and columns are not shown. On Apple Silicon, memory speed and PCI IDs of the graphics are not known.
+
+## Copying values
+
+Every value has a small copy button after it. Click it and the value is in the clipboard, ready to paste into a forum post, a support request or a search. A short “Copied” message confirms it.
+
+## PDF report
+
+Click the report button in the toolbar or press `Ctrl`+`S`. Choose where to save the file; its name is `sysinfo-report-` with today’s date. The report has four parts:
+
+- **Common**: the host name, the operating system, the CPU and the memory (total, used and free).
+- **Memory Modules**: each module with its size and speed.
+- **Drives**: each drive with its model, type and size.
+- **Graphics**: each graphics adapter with its ID and driver.
+
+Attach it to a support request, or keep it with the papers of the computer. On Linux without `zenity` or `kdialog` there is no save dialog, so the report is saved to your home folder.
+
+## PCI ID lookup
+
+The **PCI Vendor/Device** category finds a vendor or device in the PCI ID database built into the app, so it works without the internet. Type into any of the fields, the list is filtered as you type:
+
+- **VEN**: the vendor ID, for example `8086` for Intel or `10de` for NVIDIA.
+- **DEV**: the device ID.
+- **Vendor/Device Name**: a part of the vendor or device name, for example `RTX`.
+
+This helps with an unknown device in Windows Device Manager: its hardware ID looks like `PCI\VEN_8086&DEV_0412`. Type the numbers after VEN_ and DEV_ to see what it is.
+
+## Tray and one copy
+
+- The tray button in the toolbar (`Ctrl`+`T`) hides the window and leaves an icon in the system tray. Click the icon or choose **Show** in its menu to bring the window back, or **Quit** to close the app.
+- Only one copy of AltSysInfo runs at a time. Starting it again brings the running window to the front, even from the tray.
+
+## Settings
+
+Click **Settings** at the bottom of the window.
+
+- **Always on top**: keep the window above other windows. Off by default.
+- **Language**: one of 31 languages, or as in the system.
+- **Theme**: dark or light.
+
+## Keyboard shortcuts
+
+|  |  |
+|---|---|
+| `F5` | Read the information of the category again |
+| `Ctrl`+`S` | Save a PDF report |
+| `Ctrl`+`T` | Minimize to tray |
+| `F1` | Open this help |
+| `Ctrl`+`M` | Maximize or restore the window |
+| `Ctrl`+`H` | Minimize the window |
+| `Alt`+`X` | Exit |
+
+On macOS use `Cmd` instead of `Ctrl` for `S` and `T`.
+
+## Good to know
+
+- AltSysInfo only reads information. It changes nothing in the system and sends nothing anywhere.
+- On Linux it works without root. Only the memory modules may need root: where the udev database has no data about them, they are read from the SMBIOS table, which only root can read.
+- Settings are in the `.altbins/.altsysinfo` folder in your home folder.
+- The app remembers the window size and position, the width of the category list and the last category.

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltSysInfo Docs — AltBins.pro</title>
+  <meta name="description" content="How to use AltSysInfo: the categories, copying values, the PDF report, the PCI ID lookup, settings and keyboard shortcuts.">
+  <link rel="canonical" href="https://altbins.pro/altsysinfo/docs/">
+  <link rel="alternate" type="text/markdown" href="https://altbins.pro/altsysinfo/docs/index.md" title="Markdown">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AltBins.pro">
+  <meta property="og:title" content="AltSysInfo Docs — AltBins.pro">
+  <meta property="og:description" content="How to use AltSysInfo: the categories, copying values, the PDF report, the PCI ID lookup, settings and keyboard shortcuts.">
+  <meta property="og:url" content="https://altbins.pro/altsysinfo/docs/">
+  <meta property="og:image" content="https://altbins.pro/altsysinfo/screenshots/altsysinfo-main.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AltBins.pro",
+          "item": "https://altbins.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AltSysInfo",
+          "item": "https://altbins.pro/altsysinfo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Docs",
+          "item": "https://altbins.pro/altsysinfo/docs/"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "AltSysInfo Docs",
+      "description": "How to use AltSysInfo: the categories, copying values, the PDF report, the PCI ID lookup, settings and keyboard shortcuts.",
+      "url": "https://altbins.pro/altsysinfo/docs/",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Ivan Poluianov",
+        "url": "https://github.com/ipoluianov"
+      },
+      "about": {
+        "@id": "https://altbins.pro/altsysinfo/#app"
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=8">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-logo"><svg class="site-logo__mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M7 8.5l3.5 3.5L7 15.5M12.5 15.5H17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="site-logo__text">Alt<span>Bins</span>.pro</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#utilities">Utilities</a>
+        <a href="https://github.com/ipoluianov" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="site-nav__label">GitHub</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="docs">
+    <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/#utilities">Utilities</a>
+      <span aria-hidden="true">/</span>
+      <a href="/altsysinfo/">AltSysInfo</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Docs</span>
+    </nav>
+    <header class="product-head">
+      <img class="product-head__icon" src="/altsysinfo/icon.svg" alt="" width="64" height="64">
+      <div>
+        <h1 class="product-head__title">AltSysInfo Docs</h1>
+        <p class="product-head__desc">How to use the app</p>
+        <div class="tags"></div>
+      </div>
+    </header>
+
+
+      <h2 class="section-title" id="quick-start">Quick start</h2>
+      <div class="panel">
+        <ol>
+          <li>Start AltSysInfo. It opens on <b>Common</b>: the CPU, the number of cores, the memory, the drives and the graphics.</li>
+          <li>Click a category on the left to see more about one part of the computer.</li>
+          <li>Click the copy button after a value to put it into the clipboard.</li>
+          <li>Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the main facts as a PDF report.</li>
+        </ol>
+        <p>The information of a category is read when you open it for the first time. Press <kbd>F5</kbd> to read it again, for example after you plug in a USB device.</p>
+      </div>
+
+      <h2 class="section-title" id="categories">Categories</h2>
+      <div class="panel">
+        <table class="docs-table">
+          <tr><td>Common</td><td>The main facts: CPU model and cores, memory, every drive with its type and size, every graphics adapter with its driver.</td></tr>
+          <tr><td>RAM</td><td>The memory modules: model, size and speed of each one.</td></tr>
+          <tr><td>System</td><td>The operating system, its version and kernel, the host name, boot time and uptime, the computer, motherboard and BIOS / firmware.</td></tr>
+          <tr><td>CPU</td><td>The processor model and vendor, family, model and stepping, cores and logical processors, frequencies, cache and instruction set extensions.</td></tr>
+          <tr><td>Storage</td><td>Physical drives with model, type and size. Volumes with mount point, file system, size, used and free space.</td></tr>
+          <tr><td>Graphics &amp; Displays</td><td>Graphics adapters with model, ID, video memory and driver. Displays with manufacturer, model, size and year.</td></tr>
+          <tr><td>Network</td><td>Network interfaces with status, MAC, IPv4 and IPv6 addresses, speed and driver.</td></tr>
+          <tr><td>PCI Devices</td><td>Every PCI device with its class, vendor, name, ID and driver.</td></tr>
+          <tr><td>USB Devices</td><td>Every USB device with its manufacturer, name, ID and speed or driver.</td></tr>
+          <tr><td>Audio</td><td>Sound cards and sound devices.</td></tr>
+          <tr><td>Sensors</td><td>Temperatures and other values the system reports.</td></tr>
+          <tr><td>Battery</td><td>The battery state and charge, and the AC adapter. Empty on a desktop computer.</td></tr>
+          <tr><td>PCI Vendor/Device</td><td>A search in the built-in PCI ID database, see <a href="#pci-lookup">below</a>.</td></tr>
+        </table>
+        <p>What a category shows depends on the system: some values are only known on Linux, Windows or macOS. Empty values and columns are not shown. On Apple Silicon, memory speed and PCI IDs of the graphics are not known.</p>
+      </div>
+
+      <h2 class="section-title" id="copy">Copying values</h2>
+      <div class="panel">
+        <p>Every value has a small copy button after it. Click it and the value is in the clipboard, ready to paste into a forum post, a support request or a search. A short &ldquo;Copied&rdquo; message confirms it.</p>
+      </div>
+
+      <h2 class="section-title" id="pdf-report">PDF report</h2>
+      <div class="panel">
+        <p>Click the report button in the toolbar or press <kbd>Ctrl</kbd>+<kbd>S</kbd>. Choose where to save the file; its name is <code>sysinfo-report-</code> with today&rsquo;s date. The report has four parts:</p>
+        <ul>
+          <li><b>Common</b>: the host name, the operating system, the CPU and the memory (total, used and free).</li>
+          <li><b>Memory Modules</b>: each module with its size and speed.</li>
+          <li><b>Drives</b>: each drive with its model, type and size.</li>
+          <li><b>Graphics</b>: each graphics adapter with its ID and driver.</li>
+        </ul>
+        <p>Attach it to a support request, or keep it with the papers of the computer. On Linux without <code>zenity</code> or <code>kdialog</code> there is no save dialog, so the report is saved to your home folder.</p>
+      </div>
+
+      <h2 class="section-title" id="pci-lookup">PCI ID lookup</h2>
+      <div class="panel">
+        <p>The <b>PCI Vendor/Device</b> category finds a vendor or device in the PCI ID database built into the app, so it works without the internet. Type into any of the fields, the list is filtered as you type:</p>
+        <ul>
+          <li><b>VEN</b>: the vendor ID, for example <code>8086</code> for Intel or <code>10de</code> for NVIDIA.</li>
+          <li><b>DEV</b>: the device ID.</li>
+          <li><b>Vendor/Device Name</b>: a part of the vendor or device name, for example <code>RTX</code>.</li>
+        </ul>
+        <p>This helps with an unknown device in Windows Device Manager: its hardware ID looks like <code>PCI\VEN_8086&amp;DEV_0412</code>. Type the numbers after VEN_ and DEV_ to see what it is.</p>
+      </div>
+
+      <h2 class="section-title" id="tray">Tray and one copy</h2>
+      <div class="panel">
+        <ul>
+          <li>The tray button in the toolbar (<kbd>Ctrl</kbd>+<kbd>T</kbd>) hides the window and leaves an icon in the system tray. Click the icon or choose <b>Show</b> in its menu to bring the window back, or <b>Quit</b> to close the app.</li>
+          <li>Only one copy of AltSysInfo runs at a time. Starting it again brings the running window to the front, even from the tray.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title" id="settings">Settings</h2>
+      <div class="panel">
+        <p>Click <b>Settings</b> at the bottom of the window.</p>
+        <ul>
+          <li><b>Always on top</b>: keep the window above other windows. Off by default.</li>
+          <li><b>Language</b>: one of 31 languages, or as in the system.</li>
+          <li><b>Theme</b>: dark or light.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title" id="keyboard-shortcuts">Keyboard shortcuts</h2>
+      <div class="panel">
+        <table class="docs-table docs-table--keys">
+          <tr><td><kbd>F5</kbd></td><td>Read the information of the category again</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save a PDF report</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>T</kbd></td><td>Minimize to tray</td></tr>
+          <tr><td><kbd>F1</kbd></td><td>Open this help</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>M</kbd></td><td>Maximize or restore the window</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>Minimize the window</td></tr>
+          <tr><td><kbd>Alt</kbd>+<kbd>X</kbd></td><td>Exit</td></tr>
+        </table>
+        <p>On macOS use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd> for <kbd>S</kbd> and <kbd>T</kbd>.</p>
+      </div>
+
+      <h2 class="section-title" id="good-to-know">Good to know</h2>
+      <div class="panel">
+        <ul>
+          <li>AltSysInfo only reads information. It changes nothing in the system and sends nothing anywhere.</li>
+          <li>On Linux it works without root. Only the memory modules may need root: where the udev database has no data about them, they are read from the SMBIOS table, which only root can read.</li>
+          <li>Settings are in the <code>.altbins/.altsysinfo</code> folder in your home folder.</li>
+          <li>The app remembers the window size and position, the width of the category list and the last category.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; Ivan Poluianov</span>
+      <span>Free and open-source utilities</span>
+    </div>
+  </footer>
+</body>
+</html>

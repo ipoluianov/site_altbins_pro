@@ -20,6 +20,7 @@ PAGES = [
     'althex/docs',
     'althex/docs/templates',
     'althex/docs/api',
+    'altsysinfo/docs',
 ]
 
 
